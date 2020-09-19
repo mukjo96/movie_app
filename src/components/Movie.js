@@ -3,49 +3,67 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Movie.css";
 
-function Movie({ id, year, title, summary, poster, genres }) {
+function Movie({
+  rnum,
+  movieCd,
+  rank,
+  rankInten,
+  rankOldAndNew,
+  movieNm,
+  audiAcc,
+}) {
+  if (rankOldAndNew === "OLD") {
+    rankOldAndNew = "";
+  }
   return (
     <div className="movie">
       <Link
         to={{
-          pathname: `/movie/${id}`,
+          pathname: `/movie/${movieCd}`,
           state: {
-            year,
-            title,
-            summary,
-            poster,
-            genres,
+            rank,
+            rankInten,
+            rankOldAndNew,
+            movieCd,
+            movieNm,
+            audiAcc,
           },
         }}
       >
-        <img src={poster} alt={title} title={title} />
+        <img
+          src="https://i.pinimg.com/originals/c7/7e/48/c77e48de4ff26ab9e2aa53214044cf3a.jpg"
+          alt={movieNm}
+          title={movieNm}
+        />
         <div className="movie__data">
-          <h3 className="movie__title">{title}</h3>
-          <h5 className="movie__year">{year}</h5>
-          <ul className="movie__genres">
-            {genres.map((genre, index) => (
-              <li key={index} className="genres__genre">
-                {genre}
-              </li>
-            ))}
-          </ul>
-          <p className="movie__summary">
-            {summary.slice(0, 140)}
-            {summary.length > 140 ? "..." : ""}
-          </p>
+          <h3 className="movie__title">{movieNm}</h3>
+          <h4 className="movie__rank">영화 순위 : {rank}</h4>
+          <div className="movie__rankud">
+            <h5>순위 변동 : {rankInten}</h5>
+            <h5 className="movie__rankon">{rankOldAndNew}</h5>
+          </div>
+          <h4 className="movie__audi">
+            누적 관객 수 : {numberWithCommas(audiAcc)}명
+          </h4>
         </div>
       </Link>
     </div>
   );
 }
-
+/*
 Movie.propTypes = {
-  id: PropTypes.number.isRequired,
-  year: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  rnum: PropTypes.number.isRequired,
+  rank: PropTypes.number.isRequired,
+  rankInten: PropTypes.number.isRequired,
+  movieCd: PropTypes.number.isRequired,
+  movieNm: PropTypes.string.isRequired,
+  rankOldAndNew: PropTypes.string.isRequired,
+  audiAcc: PropTypes.number.isRequired,
 };
+*/
 
 export default Movie;
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

@@ -12,12 +12,13 @@ class Home extends React.Component {
   getMovies = async () => {
     const {
       data: {
-        data: { movies },
+        boxOfficeResult: { dailyBoxOfficeList },
       },
     } = await axios.get(
-      "https://yts.mx/api/v2/list_movies.json?sort_by=rating"
+      `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=19485159ceea76711f74a90b7517d25c&targetDt=` +
+        (getCurrentDate() - 1)
     );
-    this.setState({ movies, isLoading: false });
+    this.setState({ movies: dailyBoxOfficeList, isLoading: false });
   };
 
   componentDidMount() {
@@ -27,7 +28,7 @@ class Home extends React.Component {
   render() {
     const { isLoading, movies } = this.state;
     return (
-      <section className="container">
+      <body className="container">
         {isLoading ? (
           <div className="loader">
             <span className="loader__text">Loading...</span>
@@ -36,20 +37,31 @@ class Home extends React.Component {
           <div className="movies">
             {movies.map((movie) => (
               <Movie
-                key={movie.id}
-                id={movie.year}
-                year={movie.year}
-                title={movie.title}
-                summary={movie.summary}
-                poster={movie.medium_cover_image}
-                genres={movie.genres}
+                key={movie.rnum}
+                rank={movie.rank} // 순위
+                rankInten={movie.rankInten} // 순위 증감
+                movieNm={movie.movieNm} // 제목
+                rankOldAndNew={movie.rankOldAndNew} // 신규 진입 여부
+                movieCd={movie.movieCd} // 영화 코드
+                audiAcc={movie.audiAcc} // 관객 누적 수
               />
             ))}
           </div>
         )}
-      </section>
+      </body>
     );
   }
 }
 
 export default Home;
+
+export function getCurrentDate(separator = "") {
+  let newDate = new Date();
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
+
+  return `${year}${separator}${
+    month < 10 ? `0${month}` : `${month}`
+  }${separator}${date}`;
+}

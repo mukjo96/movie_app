@@ -28,7 +28,7 @@
 }
 
 .movie .movie__title,
-.movie .movie__year {
+.movie .movie__rank {
   margin: 0;
   font-weight: 300;
 }
@@ -39,7 +39,7 @@
   color: #2c2c2c;
 }
 
-.movie .movie__genres {
+.movie .movie__rank .movie .movie__rankud {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -48,8 +48,11 @@
   margin: 5px 0px;
 }
 
-.movie__genres li,
-.movie .movie__year {
+.movie .movie__rankon {
+  list-style: none;
+  color: green;
+}
+.movie .movie__rankud .movie .movie__audi {
   margin-right: 10px;
   font-size: 14px;
 }

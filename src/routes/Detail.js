@@ -11,7 +11,7 @@ class Detail extends React.Component {
   getMovieDetails = async () => {
     const { location } = this.props;
     const details = await axios.get(
-      `http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=19485159ceea76711f74a90b7517d25c&movieCd=` +
+      `https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=19485159ceea76711f74a90b7517d25c&movieCd=` +
         location.state.movieCd
     );
     console.log(details);

@@ -15,7 +15,7 @@ class Home extends React.Component {
         boxOfficeResult: { dailyBoxOfficeList },
       },
     } = await axios.get(
-      `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=19485159ceea76711f74a90b7517d25c&targetDt=` +
+      `https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=19485159ceea76711f74a90b7517d25c&targetDt=` +
         (getCurrentDate() - 1)
     );
     this.setState({ movies: dailyBoxOfficeList, isLoading: false });

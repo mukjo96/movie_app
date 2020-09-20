@@ -16,6 +16,7 @@
 
 .movieDetail .movieDetail__data .movieDetail__title {
   margin-top: -5%;
+  text-decoration: none;
 }
 
 .movieDetail .movieDetail__data .movieDetail__title h4 {

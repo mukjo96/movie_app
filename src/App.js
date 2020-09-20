@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import Detail from "./routes/Detail";
 import "./App.css";
 //npm run deploy
+
 function App() {
   return (
     <HashRouter>

@@ -1,6 +1,6 @@
 .movies .movie {
   background-color: white;
-  margin-bottom: 70px;
+  margin-top: 70px;
   font-weight: 300;
   padding: 20px;
   border-radius: 5px;
@@ -28,18 +28,22 @@
 }
 
 .movie .movie__title,
-.movie .movie__rank {
+.movie .movie__year,
+.movie .movie__vote {
   margin: 0;
   font-weight: 300;
 }
 
+.movie .movie__vote {
+  color: black;
+}
+
 .movie .movie__title {
-  margin-bottom: 5px;
   font-size: 24px;
   color: #2c2c2c;
 }
 
-.movie .movie__rank .movie .movie__rankud {
+.movie .movie__genres {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -48,11 +52,9 @@
   margin: 5px 0px;
 }
 
-.movie .movie__rankon {
-  list-style: none;
-  color: green;
-}
-.movie .movie__rankud .movie .movie__audi {
+.movie__genres li,
+.movie .movie__year,
+.movie .movie__vote {
   margin-right: 10px;
   font-size: 14px;
 }

@@ -10,16 +10,12 @@ class Detail extends React.Component {
 
   getMovieDetails = async () => {
     const { location } = this.props;
-    const details = await axios.get(
-      `https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=19485159ceea76711f74a90b7517d25c&movieCd=` +
-        location.state.movieCd
+    const { data } = await axios.get(
+      "https://api.themoviedb.org/3/movie/" +
+        location.state.movie_id +
+        "?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR"
     );
-    console.log(details);
-
-    this.setState({
-      details: details.data.movieInfoResult.movieInfo,
-      isLoading: false,
-    });
+    this.setState({ details: data, isLoading: false });
   };
 
   componentDidMount() {
@@ -42,16 +38,19 @@ class Detail extends React.Component {
         ) : (
           <div className="details">
             <MovieDetail
-              //key={detail.movieCd}
-              movieNm={details.movieNm} // 순위
-              movieNmEn={details.movieNmEn} // 순위 증감
-              prdtYear={details.prdtYear} // 제목
-              showTm={details.showTm} // 신규 진입 여부
-              nations={details.nations[0].nationNm} // 영화 코드
-              genres={details.genres} // 관객 누적 수
-              directors={details.directors}
-              actors={details.actors}
-              watchGradeNm={details.audits[0].watchGradeNm}
+              key={details.id}
+              title={details.title} // 순위
+              original_title={details.original_title} // 순위 증감
+              release_date={details.release_date} // 제목
+              poster_path={details.poster_path}
+              runtime={details.runtime} // 신규 진입 여부
+              genres={details.genres}
+              production_countries={details.production_countries} // 영화 코드
+              vote_average={details.vote_average} // 관객 누적 수
+              vote_count={details.vote_count}
+              production_companies={details.production_companies}
+              overview={details.overview}
+              homepage={details.homepage}
             />
           </div>
         )}

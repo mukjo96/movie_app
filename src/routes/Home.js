@@ -11,14 +11,11 @@ class Home extends React.Component {
 
   getMovies = async () => {
     const {
-      data: {
-        boxOfficeResult: { dailyBoxOfficeList },
-      },
+      data: { results },
     } = await axios.get(
-      `https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=19485159ceea76711f74a90b7517d25c&targetDt=` +
-        (getCurrentDate() - 1)
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=1`
     );
-    this.setState({ movies: dailyBoxOfficeList, isLoading: false });
+    this.setState({ movies: results, isLoading: false });
   };
 
   componentDidMount() {
@@ -37,13 +34,15 @@ class Home extends React.Component {
           <div className="movies">
             {movies.map((movie) => (
               <Movie
-                key={movie.rnum}
-                rank={movie.rank} // 순위
-                rankInten={movie.rankInten} // 순위 증감
-                movieNm={movie.movieNm} // 제목
-                rankOldAndNew={movie.rankOldAndNew} // 신규 진입 여부
-                movieCd={movie.movieCd} // 영화 코드
-                audiAcc={movie.audiAcc} // 관객 누적 수
+                movie_id={movie.id}
+                title_original={movie.original_title}
+                summary={movie.overview}
+                poster_path={movie.poster_path}
+                title_kr={movie.title}
+                vote_average={movie.vote_average}
+                vote_count={movie.vote_count}
+                genre_ids={movie.genre_ids}
+                release_date={movie.release_date}
               />
             ))}
           </div>

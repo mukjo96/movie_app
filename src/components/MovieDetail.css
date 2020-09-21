@@ -14,9 +14,10 @@
   width: 100%;
 }
 
-.movieDetail .movieDetail__data .movieDetail__title {
+a {
   margin-top: -5%;
   text-decoration: none;
+  color: black;
 }
 
 .movieDetail .movieDetail__data .movieDetail__title h4 {
@@ -42,6 +43,7 @@
   margin-top: 45px;
   box-shadow: none;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .movieDetail .movieDetail__companies .companies__company {
@@ -73,4 +75,17 @@ ul {
 }
 li {
   padding: 0 5px;
+}
+
+@media (max-width: 670px) {
+  .movieDetail img {
+    max-width: 100px;
+    width: 100%;
+    margin-bottom: -40px;
+  }
+
+  .movieDetail .movieDetail__data {
+    width: 100%;
+    margin-right: 0;
+  }
 }

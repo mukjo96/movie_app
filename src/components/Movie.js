@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import Media from "react-media";
 import "./Movie.css";
 
 function Movie({
@@ -32,18 +33,31 @@ function Movie({
           },
         }}
       >
-        <img
-          src={"https://image.tmdb.org/t/p/w500" + poster_path}
-          alt={title_original}
-          title={title_original}
-        />
+        <Media
+          queries={{
+            large: "(min-width: 0px)",
+          }}
+        >
+          {(matches) => (
+            <Fragment>
+              {matches.large && (
+                <img
+                  className="movie__poster"
+                  src={"https://image.tmdb.org/t/p/w500" + poster_path}
+                  alt={title_original}
+                  title={title_original}
+                />
+              )}
+            </Fragment>
+          )}
+        </Media>
         <div className="movie__data">
           <div className="movie__title">
             <h3>{title_kr}</h3>
             <h5>{title_original}</h5>
           </div>
           <h5 className="movie__year">{release_date}</h5>
-          <h5 className="movie__vote">{vote_average}/10.0</h5>
+          <h5 className="movie__vote">{vote_average} / 10.0</h5>
           <ul className="movie__genres">
             {genre_ids.map((genre, index) => (
               <li key={index} className="genres__genre">

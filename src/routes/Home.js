@@ -13,7 +13,7 @@ class Home extends React.Component {
     const {
       data: { results },
     } = await axios.get(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=1`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=1&region=KR`
     );
     this.setState({ movies: results, isLoading: false });
   };

@@ -19,7 +19,7 @@ function MovieDetail({
   homepage,
 }) {
   return (
-    <body className="movieDetail">
+    <div className="movieDetail">
       <img
         src={"https://image.tmdb.org/t/p/w500" + poster_path}
         alt={original_title}
@@ -68,7 +68,7 @@ function MovieDetail({
           </ul>
         </div>
       </div>
-    </body>
+    </div>
   );
 }
 /*

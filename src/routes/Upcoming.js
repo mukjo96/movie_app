@@ -3,7 +3,7 @@ import axios from "axios";
 import Movie from "../components/Movie";
 import "./Home.css";
 
-class Home extends React.Component {
+class Upcoming extends React.Component {
   state = {
     isLoading: true,
     movies: [],
@@ -13,7 +13,7 @@ class Home extends React.Component {
     const {
       data: { results },
     } = await axios.get(
-      `https://api.themoviedb.org/3/movie/now_playing?sort_by=vote_average.desc&api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=1&region=KR`
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=1&region=KR`
     );
     this.setState({ movies: results, isLoading: false });
   };
@@ -52,15 +52,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
-
-export function getCurrentDate(separator = "") {
-  let newDate = new Date();
-  let date = newDate.getDate();
-  let month = newDate.getMonth() + 1;
-  let year = newDate.getFullYear();
-
-  return `${year}${separator}${
-    month < 10 ? `0${month}` : `${month}`
-  }${separator}${date}`;
-}
+export default Upcoming;

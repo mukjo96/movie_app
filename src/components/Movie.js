@@ -1,8 +1,12 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 import PropTypes from "prop-types";
 import Media from "react-media";
 import "./Movie.css";
+import { faGrinStars } from "@fortawesome/free-regular-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function Movie({
   movie_id,
@@ -33,42 +37,35 @@ function Movie({
           },
         }}
       >
-        <Media
-          queries={{
-            large: "(min-width: 0px)",
-          }}
-        >
-          {(matches) => (
-            <Fragment>
-              {matches.large && (
-                <img
-                  className="movie__poster"
-                  src={"https://image.tmdb.org/t/p/w500" + poster_path}
-                  alt={title_original}
-                  title={title_original}
-                />
-              )}
-            </Fragment>
-          )}
-        </Media>
-        <div className="movie__data">
-          <div className="movie__title">
-            <h3>{title_kr}</h3>
-            <h5>{title_original}</h5>
+        <div className="movieCard">
+          <div className="movie-poster">
+            <div>
+              <img
+                className="movieimg"
+                src={"https://image.tmdb.org/t/p/w500" + poster_path}
+                alt={title_original}
+                title={title_original}
+              />
+            </div>
           </div>
-          <h5 className="movie__year">{release_date}</h5>
-          <h5 className="movie__vote">{vote_average} / 10.0</h5>
-          <ul className="movie__genres">
-            {genre_ids.map((genre, index) => (
-              <li key={index} className="genres__genre">
-                {findGenre(genre)}
-              </li>
-            ))}
-          </ul>
-          <p className="movie__summary">
-            {summary.slice(0, 140)}
-            {summary.length > 140 ? "..." : ""}
-          </p>
+          <div className="mv-inf">
+            <div className="mv-inf-top">
+              <div className="mv-inf-title">{title_kr}</div>
+            </div>
+            <div>
+              <hr />
+            </div>
+            <div className="mv-inf-btm">
+              <div className="mv-inf-overview">
+                {summary.substr(0, 70)}
+                {summary.length > 140 ? "..." : ""}
+              </div>
+              <div className="mv-inf-vote-avg">
+                <FontAwesomeIcon className="star" icon={faStar} />
+                {vote_average}
+              </div>
+            </div>
+          </div>
         </div>
       </Link>
     </div>

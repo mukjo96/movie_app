@@ -51,6 +51,7 @@ class Detail extends React.Component {
               production_companies={details.production_companies}
               overview={details.overview}
               homepage={details.homepage}
+              backdrop_path={details.backdrop_path}
             />
           </div>
         )}

@@ -2,33 +2,32 @@ import React from "react";
 import axios from "axios";
 import Movie from "../components/Movie";
 import "./Home.css";
-
-class Home extends React.Component {
+import Searchbar from "../components/Searchbar.js";
+class Search extends React.Component {
   state = {
     isLoading: true,
     movies: [],
   };
 
-  getMovies = async () => {
+  onSearchSubmit = async (text) => {
     const {
       data: { results },
     } = await axios.get(
-      `https://api.themoviedb.org/3/movie/now_playing?sort_by=vote_average.desc&api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=1&region=KR`
+      `
+        https://api.themoviedb.org/3/search/movie?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=1&include_adult=false`,
+      { params: { query: text } }
     );
     this.setState({ movies: results, isLoading: false });
   };
-
-  componentDidMount() {
-    this.getMovies();
-  }
 
   render() {
     const { isLoading, movies } = this.state;
     return (
       <body className="container">
+        <Searchbar onSubmit={this.onSearchSubmit} />
         {isLoading ? (
           <div className="loader">
-            <span className="loader__text">Loading...</span>
+            <span className="loader__text">검색어를 입력하세요</span>
           </div>
         ) : (
           <div className="movies">
@@ -52,7 +51,7 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Search;
 
 export function getCurrentDate(separator = "") {
   let newDate = new Date();

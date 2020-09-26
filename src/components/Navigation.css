@@ -1,35 +1,115 @@
-.nav {
-  z-index: 1;
-  position: fixed;
-  top: 50px;
-  left: 10px;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  padding: 10px 20px;
-  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
-  border-radius: 5px;
+:root {
+  --text-color: #f0f4f5;
+  --background-color: #263343;
+  --accent-color: #d49466;
 }
 
-@media screen and (max-width: 1090px) {
-  .nav {
-    left: initial;
-    top: initial;
-    bottom: 0px;
-    width: 100%;
-  }
+body {
+  margin: 0;
+  font-family: "Noto Sans KR";
 }
 
 .nav a {
   text-decoration: none;
-  color: #0008fc;
-  text-transform: uppercase;
-  font-size: 12px;
-  text-align: center;
-  font-weight: 600;
+  color: var(--text-color);
 }
 
-.nav a:not(:last-child) {
-  margin-bottom: 20px;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 8px 12px;
+  color: var(--text-color);
+}
+
+.navbar__logo {
+  font-size: 24px;
+  color: var(--text-color);
+}
+.navbar__logo a {
+  font-size: 24px;
+  margin-left: 5px;
+}
+
+.navbar__logo .film {
+  color: var(--accent-color);
+}
+
+.navbar__menuhidden {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.navbar__menuhidden li {
+  padding: 8px 12px;
+}
+.navbar__menuhidden li:hover {
+  background-color: var(--accent-color);
+  border-radius: 4px;
+}
+
+.navbar__iconshidden {
+  list-style: none;
+  color: var(--text-color);
+  display: flex;
+  padding-left: 0;
+}
+
+.navbar__iconshidden li {
+  padding: 8px 12px;
+}
+
+.navbar__toogleBtn {
+  display: none;
+  position: absolute;
+  right: 32px;
+  font-size: 24px;
+  color: var(--accent-color);
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+  }
+
+  .navbar__menushow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar__menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar__iconsshow {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .navbar__toogleBtn {
+    display: flex;
+    position: absolute;
+    right: 32px;
+    margin-top: 8px;
+  }
+  .navbar__toogleBtn element.style {
+    position: absolute;
+  }
+
+  element .navbar__toogleBtn {
+    position: absolute;
+  }
+
+  .navbar__menuhidden,
+  .navbar__iconshidden {
+    display: none;
+  }
 }

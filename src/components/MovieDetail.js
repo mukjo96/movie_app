@@ -2,6 +2,8 @@ import React from "react";
 import "./MovieDetail.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, faUser } from "@fortawesome/free-solid-svg-icons";
 
 function MovieDetail({
   key,
@@ -17,6 +19,7 @@ function MovieDetail({
   production_countries,
   overview,
   homepage,
+  backdrop_path,
 }) {
   return (
     <div className="movieDetail">
@@ -40,15 +43,18 @@ function MovieDetail({
           ))}
         </ul>
         <div className="movieDetail__details">
-          <h4 className="movieDetail__prdtYear">개봉일자 : {release_date}</h4>
+          <h5 className="movieDetail__prdtYear">개봉일자 : {release_date}</h5>
           <h5>상영시간 : {runtime}분</h5>
           <h5>
-            관객평점 : {vote_average} ({vote_count}명)
+            관객평점 : <FontAwesomeIcon className="star" icon={faStar} />
+            {vote_average} ({" "}
+            <FontAwesomeIcon className="people" icon={faUser} />
+            {" " + vote_count} )
           </h5>
           <ul className="movieDetail__nation">
             {production_countries.map((country, index) => (
               <li key={index} className="countries__country">
-                {country.name}
+                <h5>{nationtoKR(country.name)}</h5>
               </li>
             ))}
           </ul>
@@ -57,11 +63,11 @@ function MovieDetail({
         <div className="movieDetail__summary">
           <p>{overview}</p>
         </div>
-        <div>
+        <div className="movieDetail__production">
           <h4>제작사</h4>
           <ul className="movieDetail__companies">
             {production_companies.map((company, index) => (
-              <li key={index} classNam="companies__company">
+              <li key={index} className="companies__company">
                 {toImg(company)}
               </li>
             ))}
@@ -95,4 +101,20 @@ function toImg(s) {
       />
     );
   }
+}
+
+function nationtoKR(s) {
+  if (s === "United States of America") return "미국";
+  else if (s === "China") return "중국";
+  else if (s === "Bulgaria") return "불가리아";
+  else if (s === "Estonia") return "에스토니아";
+  else if (s === "United Kingdom") return "영국";
+  else if (s === "Japan") return "일본";
+  else if (s === "Belgium") return "벨기에";
+  else if (s === "France") return "프랑스";
+  else if (s === "South Korea") return "한국";
+  else if (s === "Colombia") return "콜롬비아";
+  else if (s === "Netherlands") return "네덜란드";
+  else if (s === "Germany") return "독일";
+  else return s;
 }

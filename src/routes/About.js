@@ -4,8 +4,8 @@ import "./About.css";
 function About() {
   return (
     <div className="about__container">
-      <span>"About..."</span>
-      <span>Me</span>
+      <span>아직</span>
+      <span>준비중</span>
     </div>
   );
 }

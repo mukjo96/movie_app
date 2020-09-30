@@ -22,11 +22,17 @@ function MovieDetail({
   backdrop_path,
 }) {
   return (
-    <div className="movieDetail">
+    <div
+      className="movieDetail"
+      style={{
+        backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backdrop_path})`,
+      }}
+    >
       <img
         src={"https://image.tmdb.org/t/p/w500" + poster_path}
         alt={original_title}
         title={original_title}
+        className="poster"
       />
       <div className="movieDetail__data">
         <div className="movieDetail__title">

@@ -5,7 +5,7 @@ import "./Home.css";
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
 
-const Upcoming = () => {
+const TopRateds = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(20);
   const [movies, setMovies] = useState([]);
@@ -17,7 +17,7 @@ const Upcoming = () => {
 
   const getTopRated = async () => {
     let response = await axios.get(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=${currentPage}&region=KR`
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=${currentPage}&region=KR`
     );
 
     setMovies(response.data.results);
@@ -65,4 +65,4 @@ const Upcoming = () => {
   );
 };
 
-export default Upcoming;
+export default TopRateds;

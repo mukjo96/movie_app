@@ -6,6 +6,7 @@ import { faBars, faFilm } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import HamburgerMenu from "react-hamburger-menu";
 import Searchbar from "./Searchbar.js";
+import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
 
 class Navigation extends React.Component {
   state = {
@@ -23,7 +24,7 @@ class Navigation extends React.Component {
         <body>
           <nav className="navbar">
             <div className="navbar__logo">
-              <FontAwesomeIcon className="film" icon={faFilm} />
+              <FontAwesomeIcon className="film" icon={faPlayCircle} />
               <a>
                 <Link to="/">Movie App</Link>
               </a>
@@ -38,12 +39,12 @@ class Navigation extends React.Component {
               </li>
               <li>
                 <a>
-                  <Link to="/upcoming">Upcoming</Link>
+                  <Link to="/upcoming">Up Coming</Link>
                 </a>
               </li>
               <li>
                 <a>
-                  <Link to="/toprated/1">Top Rated</Link>
+                  <Link to="/toprateds">Top Rated</Link>
                 </a>
               </li>
               <li>

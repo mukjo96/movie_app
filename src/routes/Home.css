@@ -29,18 +29,14 @@
   background-color: rgba(255, 125, 125, 0.5);
 }
 
-.PageNavigation {
+.pagination {
   display: flex;
   justify-content: center;
 }
-.PageNavigation ul {
+.pagination ul {
   flex-wrap: unset;
   margin: 0 auto;
   margin-top: 2%;
-}
-.page-link,
-.page-linkh {
-  margin-right: 7px;
 }
 
 .left {

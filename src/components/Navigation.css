@@ -1,8 +1,9 @@
 :root {
-  --text-color: #f0f4f5;
-  --background-color: #263343;
-  --accent-color: #d49466;
+  --text-color: #f2dcb3;
+  --background-color: #1b1159;
+  --accent-color: #87cbff;
 }
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Sansita+Swashed:wght@500&display=swap");
 
 body {
   margin: 0;
@@ -11,6 +12,8 @@ body {
 
 .nav a {
   text-decoration: none;
+  font-family: "Sansita Swashed", cursive;
+  font-weight: 500;
   color: var(--text-color);
 }
 
@@ -52,7 +55,7 @@ body {
 
 .navbar__iconshidden {
   list-style: none;
-  color: var(--text-color);
+  color: #f2f2f2;
   display: flex;
   padding-left: 0;
 }
@@ -91,6 +94,7 @@ body {
   .navbar__iconsshow {
     display: flex;
     justify-content: center;
+    color: #f2f2f2;
     width: 100%;
   }
 

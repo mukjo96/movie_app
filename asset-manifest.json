@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/movie_app/static/css/main.d265527c.chunk.css",
+    "main.css": "/movie_app/static/css/main.aa335e74.chunk.css",
     "main.js": "/movie_app/static/js/main.6e07086f.chunk.js",
     "main.js.map": "/movie_app/static/js/main.6e07086f.chunk.js.map",
     "runtime-main.js": "/movie_app/static/js/runtime-main.b13a569b.js",
@@ -9,10 +9,10 @@
     "static/js/2.f031c684.chunk.js": "/movie_app/static/js/2.f031c684.chunk.js",
     "static/js/2.f031c684.chunk.js.map": "/movie_app/static/js/2.f031c684.chunk.js.map",
     "index.html": "/movie_app/index.html",
-    "precache-manifest.b1fd79b4c6fd5da734568a4a63e60c84.js": "/movie_app/precache-manifest.b1fd79b4c6fd5da734568a4a63e60c84.js",
+    "precache-manifest.4767ed5248b5e477438893d7d70c87ec.js": "/movie_app/precache-manifest.4767ed5248b5e477438893d7d70c87ec.js",
     "service-worker.js": "/movie_app/service-worker.js",
     "static/css/2.41afa381.chunk.css.map": "/movie_app/static/css/2.41afa381.chunk.css.map",
-    "static/css/main.d265527c.chunk.css.map": "/movie_app/static/css/main.d265527c.chunk.css.map",
+    "static/css/main.aa335e74.chunk.css.map": "/movie_app/static/css/main.aa335e74.chunk.css.map",
     "static/media/cgv.png": "/movie_app/static/media/cgv.f10c3a18.png",
     "static/media/logo512.png": "/movie_app/static/media/logo512.ca0697c0.png",
     "static/media/lottecinema.png": "/movie_app/static/media/lottecinema.c31f6ef4.png",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.b13a569b.js",
     "static/css/2.41afa381.chunk.css",
     "static/js/2.f031c684.chunk.js",
-    "static/css/main.d265527c.chunk.css",
+    "static/css/main.aa335e74.chunk.css",
     "static/js/main.6e07086f.chunk.js"
   ]
 }

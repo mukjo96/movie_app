@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faFilm } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import cgv from "../res/cgv.png";
+import lottecinema from "../res/lottecinema.png";
+import megabox from "../res/megabox.png";
 import HamburgerMenu from "react-hamburger-menu";
-import Searchbar from "./Searchbar.js";
-import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
+import logo from "../res/logo512.png";
 
 class Navigation extends React.Component {
   state = {
@@ -24,7 +23,7 @@ class Navigation extends React.Component {
         <body>
           <nav className="navbar">
             <div className="navbar__logo">
-              <FontAwesomeIcon className="film" icon={faPlayCircle} />
+              <img src={logo} />
               <a>
                 <Link to="/">Movie App</Link>
               </a>
@@ -65,10 +64,19 @@ class Navigation extends React.Component {
               }
             >
               <li>
-                <FontAwesomeIcon icon={faTwitter} />
+                <a href="https://www.cgv.co.kr" target="_blank">
+                  <img src={cgv} />
+                </a>
               </li>
               <li>
-                <FontAwesomeIcon icon={faFacebook} />
+                <a href="https://www.lottecinema.co.kr" target="_blank">
+                  <img src={lottecinema} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.megabox.co.kr" target="_blank">
+                  <img src={megabox} />
+                </a>
               </li>
             </ul>
             <section className="navbar__toogleBtn">

@@ -26,7 +26,12 @@ a {
 
 .movieDetail {
   background-size: cover;
-  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg_filter {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .movieDetail .movieDetail__data .movieDetail__title h4 {
@@ -34,7 +39,6 @@ a {
 }
 
 .movieDetail img {
-  opacity: 1;
   position: relative;
   max-width: 200px;
   width: 100%;
@@ -69,7 +73,6 @@ a {
 }
 
 .details .movieDetail__data {
-  opacity: 1;
   width: 75%;
   height: 75%;
   padding: 10px;

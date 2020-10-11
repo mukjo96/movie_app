@@ -28,15 +28,18 @@ body {
 
 .navbar__logo {
   font-size: 24px;
+  display: flex;
   color: var(--text-color);
 }
 .navbar__logo a {
   font-size: 24px;
   margin-left: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-.navbar__logo .film {
-  color: var(--accent-color);
+.navbar__logo img {
+  width: 40px;
 }
 
 .navbar__menuhidden {
@@ -64,10 +67,21 @@ body {
   padding: 8px 12px;
 }
 
+.navbar__iconshidden li img {
+  height: 70px;
+  margin: -30px 0;
+}
+
+.navbar__iconsshow li img {
+  height: 70px;
+  margin: -30px 0;
+}
+
 .navbar__toogleBtn {
   display: none;
   position: absolute;
   right: 32px;
+  top: 20.5px;
   font-size: 24px;
   color: var(--accent-color);
 }
@@ -102,7 +116,7 @@ body {
     display: flex;
     position: absolute;
     right: 32px;
-    margin-top: 8px;
+    top: 20.5px;
   }
   .navbar__toogleBtn element.style {
     position: absolute;
@@ -110,6 +124,11 @@ body {
 
   element .navbar__toogleBtn {
     position: absolute;
+  }
+
+  .navbar__iconsshow li img {
+    height: 60px;
+    margin: -20px 7px;
   }
 
   .navbar__menuhidden,

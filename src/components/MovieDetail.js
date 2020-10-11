@@ -28,56 +28,58 @@ function MovieDetail({
         backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backdrop_path})`,
       }}
     >
-      <img
-        src={"https://image.tmdb.org/t/p/w500" + poster_path}
-        alt={original_title}
-        title={original_title}
-        className="poster"
-      />
-      <div className="movieDetail__data">
-        <div className="movieDetail__title">
-          <a href={homepage}>
-            <h1>{title}</h1>
-          </a>
-          <h4>{original_title}</h4>
-        </div>
-        <ul className="movieDetail__genres">
-          {genres.map((genre, index) => (
-            <li key={index} className="genres__genre">
-              {genre.name}
-            </li>
-          ))}
-        </ul>
-        <div className="movieDetail__details">
-          <h5 className="movieDetail__prdtYear">개봉일자 : {release_date}</h5>
-          <h5>상영시간 : {runtime}분</h5>
-          <h5>
-            관객평점 : <FontAwesomeIcon className="star" icon={faStar} />
-            {vote_average} ({" "}
-            <FontAwesomeIcon className="people" icon={faUser} />
-            {" " + vote_count} )
-          </h5>
-          <ul className="movieDetail__nation">
-            {production_countries.map((country, index) => (
-              <li key={index} className="countries__country">
-                <h5>{nationtoKR(country.name)}</h5>
+      <div className="bg_filter">
+        <img
+          src={"https://image.tmdb.org/t/p/w500" + poster_path}
+          alt={original_title}
+          title={original_title}
+          className="poster"
+        />
+        <div className="movieDetail__data">
+          <div className="movieDetail__title">
+            <a href={homepage}>
+              <h1>{title}</h1>
+            </a>
+            <h4>{original_title}</h4>
+          </div>
+          <ul className="movieDetail__genres">
+            {genres.map((genre, index) => (
+              <li key={index} className="genres__genre">
+                {genre.name}
               </li>
             ))}
           </ul>
-        </div>
+          <div className="movieDetail__details">
+            <h5 className="movieDetail__prdtYear">개봉일자 : {release_date}</h5>
+            <h5>상영시간 : {runtime}분</h5>
+            <h5>
+              관객평점 : <FontAwesomeIcon className="star" icon={faStar} />
+              {vote_average} ({" "}
+              <FontAwesomeIcon className="people" icon={faUser} />
+              {" " + vote_count} )
+            </h5>
+            <ul className="movieDetail__nation">
+              {production_countries.map((country, index) => (
+                <li key={index} className="countries__country">
+                  <h5>{nationtoKR(country.name)}</h5>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <div className="movieDetail__summary">
-          <p>{overview}</p>
-        </div>
-        <div className="movieDetail__production">
-          <h4>제작사</h4>
-          <ul className="movieDetail__companies">
-            {production_companies.map((company, index) => (
-              <li key={index} className="companies__company">
-                {toImg(company)}
-              </li>
-            ))}
-          </ul>
+          <div className="movieDetail__summary">
+            <p>{overview}</p>
+          </div>
+          <div className="movieDetail__production">
+            <h4>제작사</h4>
+            <ul className="movieDetail__companies">
+              {production_companies.map((company, index) => (
+                <li key={index} className="companies__company">
+                  {toImg(company)}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import "./App.css";
 import Upcoming from "./routes/Upcoming";
 import TopRateds from "./routes/TopRateds";
 import Search from "./routes/Search";
+import Theaters from "./routes/Theaters"
 //npm run deploy
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="/upcoming" component={Upcoming} />
       <Route path="/toprateds" component={TopRateds} />
       <Route path="/search" component={Search} />
+      <Route path="/theaters" component={Theaters} />
       <Route path="/about" component={About} />
       <Route path="/movie/:id" component={Detail} />
     </HashRouter>

@@ -27,7 +27,7 @@ class Search extends React.Component {
         <Searchbar onSubmit={this.onSearchSubmit} />
         {isLoading ? (
           <div className="loader">
-            <span className="loader__text">검색어를 입력하세요</span>
+            <span className="loader__text">검색어를 입력하세요.</span>
           </div>
         ) : (
           <div className="movies">

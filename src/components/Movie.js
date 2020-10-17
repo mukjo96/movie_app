@@ -1,11 +1,8 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fab } from "@fortawesome/free-brands-svg-icons";
 import PropTypes from "prop-types";
-import Media from "react-media";
 import "./Movie.css";
-import { faGrinStars } from "@fortawesome/free-regular-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function Movie({

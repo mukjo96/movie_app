@@ -3,6 +3,7 @@ import Movie from "../components/Movie";
 import axios from "axios";
 import "./Home.css";
 import Pagination from "rc-pagination";
+import { Link } from "react-router-dom";
 import "rc-pagination/assets/index.css";
 
 const Home = () => {
@@ -66,3 +67,5 @@ const Home = () => {
 };
 
 export default Home;
+
+

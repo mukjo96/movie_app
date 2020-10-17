@@ -51,6 +51,11 @@ class Navigation extends React.Component {
                   <Link to="/search">Search</Link>
                 </a>
               </li>
+              <li>
+                <a>
+                  <Link to="/theaters">Theaters</Link>
+                </a>
+              </li>
               {/* <li>
                 <a>
                   <Link to="/about">About</Link>

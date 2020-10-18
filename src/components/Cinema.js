@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-
+import { faPhone, faStar } from "@fortawesome/free-solid-svg-icons";
+import "./Cinema.css";
 function Cinema({
     theater_id,
     theater_name,
@@ -10,6 +10,9 @@ function Cinema({
     location,
     location_detail,
     vote_average,
+    phone,
+    place_url,
+    road_address_name,    
 
 }) {
     return (
@@ -17,28 +20,31 @@ function Cinema({
         <div className="cinema">
             <Link
         to={{
-          pathname: `/theaters/${theater_id}`,
+          pathname: `/theaters`,
           state: {
             theater_id,
     theater_name,
     theater_brand,
     location,
     location_detail,
-    vote_average
+    vote_average,
+    phone,
+    place_url,
+    road_address_name,   
           },
         }}
       >
          <div className="cinemaCard">
-          <div className="brand-poster">
+          {/* <div className="brand-poster">
             <div>
-              {/* <img
+              <img
                 className="movieimg"
                 src={"https://image.tmdb.org/t/p/w500" + poster_path}
                 alt={title_original}
                 title={title_original}
-              /> */}
+              />
             </div>
-          </div>
+          </div> */}
           <div className="cinema-inf">
             <div className="cinema-inf-top">
               <div className="cinema-inf-title">{theater_name}</div>
@@ -48,8 +54,11 @@ function Cinema({
             </div>
             <div className="cinema-inf-btm">
               <div className="cinema-inf-overview">
-                {location}"\n"
-                {location_detail}
+                {road_address_name}
+                <div className="phonenum">
+                <FontAwesomeIcon className="phone" icon={faPhone} />
+                {phone}
+                </div>
               </div>
               <div className="cinema-inf-vote-avg">
                 <FontAwesomeIcon className="star" icon={faStar} />

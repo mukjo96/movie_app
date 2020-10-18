@@ -24,7 +24,6 @@ const Home = () => {
     setMovies(response.data.results);
     setIsLoading(false);
     setTotalPage(response.data.total_results);
-    console.log(response.data.total_pages);
   };
 
   return (

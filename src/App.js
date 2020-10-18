@@ -9,6 +9,7 @@ import Upcoming from "./routes/Upcoming";
 import TopRateds from "./routes/TopRateds";
 import Search from "./routes/Search";
 import Theaters from "./routes/Theaters"
+
 //npm run deploy
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/theaters" component={Theaters} />
       <Route path="/about" component={About} />
       <Route path="/movie/:id" component={Detail} />
+      <Route path="/theaters/:id" component={Detail} />
     </HashRouter>
   );
 }

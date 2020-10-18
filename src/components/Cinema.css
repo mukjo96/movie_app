@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+.cinema {
+  margin: 0 auto;
+  padding: 0;
+  justify-content: center;
+  width: 100%;
+}
+
+.cinemaCard {
+  position: relative;
+  /* margin: 20px 10px; */
+  max-width: 100%;
+  padding: 8px;
+}
+/* .cinema-poster {
+  position: relative;
+  width: 250px;
+  height: 350px;
+} */
+/* .cinemaimg {
+  width: 250px;
+  height: 350px;
+  border-radius: 10px;
+} */
+/*   */
+
+.cinema-inf {
+  display: flex;
+  flex-direction: column;
+  /*  position: absolute; */
+  bottom: 0;
+  padding: 8px;
+  width: 100%;
+  align-self: end;
+  background-color: white;
+  border-radius: 8px 8px;
+  /*margin: 8px;*/
+  visibility: visible;
+  transition: visibility 500ms;
+}
+
+.cinema-inf-top {
+  text-align: left;
+  font-weight: bolder;
+}
+
+.cinema-inf-btm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.cinema-inf-overview {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  flex-direction: column;
+}
+
+.cinema-inf-vote-avg {
+  display: flex;
+  /*   flex-direction: column; */
+  justify-content: center;
+  border-radius: 8px;
+  background-color: red;
+  /*padding-left:8px;*/
+  /*padding-right: 8px;*/
+  padding: 4px;
+  color: white;
+  margin-top: 3px;
+  /*height: 22px;*/
+  align-self: center;
+  text-align: center;
+}
+
+.phone {
+  margin: auto auto;
+  font-size: 12px;
+  margin-right: 3px;
+}
+
+.cinema-inf-vote-avg .star {
+  margin: auto auto;
+  margin-right: 3px;
+  color: yellow;
+}
+@media only screen and (max-width: 600px) {
+  .cinema-poster {
+    position: relative;
+    width: 125px;
+    height: 175px;
+  }
+  .cinemaimg {
+    width: 125px;
+    height: 175px;
+    border-radius: 10px;
+  }
+
+  .cinemaCard {
+    margin: 0;
+  }
+
+  .cinema-inf {
+    font-size: 12px;
+  }
+
+  .cinema-inf-btm {
+    font-size: 10px;
+  }
+}

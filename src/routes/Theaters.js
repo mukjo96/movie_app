@@ -4,89 +4,79 @@ import React, {useState} from "react"
 import {Link} from "react-router-dom"
 import Theater_data from "../json/Theater_data.json"
 import Cinema from "../components/Cinema"
+import "./Theaters.css";
+
+const Cinemas = Array.from(Theater_data)
+
 const Theaters = () => {
     const [theaterBrand, setTheaterBrand] = useState("전체");
     const [theaterLocation, setTheaterLocation] = useState("전체")
-
+    
+    var theaterLocDetail = ""
+    const setLocDetail = (value) => {
+      theaterLocDetail = value
+    }
 
     const locationList = ["전체", "서울", "부산", "경기/인천", "충청/대전", "경북/대구", "경남/울산", "전라/광주", "강원/제주" ]
-    const locationItem = locationList.map((name) => 
-    <li >
-        <button onClick={() => setTheaterLocation(`${name}`)}>{name}</button>
-    </li>)
-
-    const Cinemas = Array.from(Theater_data)
-
-    const isAll = () => {
-        if((theaterBrand == "전체") && (theaterLocation == "전체")){
-            return true;
-        }
-        else return false;
-    }
-    const chklocation = (location) => {
-        if((theaterBrand == "전체") && (theaterLocation == location)){
-            return true;
-        }
-        else return false;
-    }
-    const chkbrand = (brand) => {
-        if((theaterLocation == "전체") && (theaterBrand == brand)){
-            return true;
-        }
-        else return false;
-    }
-    const chkall = (brand, location) => {
-        if((theaterBrand == brand) && (theaterLocation == location)){
-            return true;
-        }
-        else return false;
-        
-    }
-    
-
     
     return (
-        <body>
-        <div>
-            <a>{theaterBrand}, {theaterLocation}</a>
+        <body className="containers">
+        <div className="checklist">
             <ul className = "brand_name">
               <li>
-                <button onClick={() => setTheaterBrand("전체")}>
+                <button className={"btnbr" + ((theaterBrand==="전체") ? "active" : "default")} onClick={() => setTheaterBrand("전체")}>
                     전체
                 </button>
               </li>
               <li>
-              <button onClick={() => setTheaterBrand("CGV")}>CGV
+              <button className={"btnbr"+((theaterBrand==="CGV") ? "active" : "default")} onClick={() => setTheaterBrand("CGV")}>CGV
                 </button>
               </li>
               <li>
-              <button onClick={() => setTheaterBrand("롯데시네마")}>롯데시네마
+              <button className={"btnbr"+((theaterBrand==="롯데시네마") ? "active" : "default")} onClick={() => setTheaterBrand("롯데시네마")}>롯데시네마
                 </button>
               </li>
               <li>
-              <button onClick={() => setTheaterBrand("메가박스")}>메가박스
+              <button className={"btnbr"+((theaterBrand==="메가박스") ? "active" : "default")} onClick={() => setTheaterBrand("메가박스")}>메가박스
                 </button>
               </li>
               <li>
-              <button onClick={() => setTheaterBrand("기타")}>기타
+              <button className={"btnbr"+((theaterBrand==="기타") ? "active" : "default")} onClick={() => setTheaterBrand("기타")}>기타
                 </button>
               </li>
               </ul>
-              <ul>
-                  {locationItem}
+              <ul className = "location_name">
+                  {locationList.map((name) => 
+    <li>
+        <button className={"btnloc"+((theaterLocation===`${name}`) ? "active" : "default")} onClick={() => setTheaterLocation(`${name}`)}>{name}</button>
+    </li>)}
               </ul>
         </div>
-        <div className="cinemas">
+        <div>
             {Cinemas.filter((cinema) => {
-                if((theaterBrand == "전체") && (theaterLocation == "전체")){return true;}
-                else if(theaterBrand == "전체"){return (theaterLocation == cinema.LOCATION);}
-                else if(theaterLocation == "전체"){return (theaterBrand == cinema.THEATER_BRAND);}
-                else{return (theaterBrand == cinema.THEATER_BRAND) && (theaterLocation == cinema.LOCATION)}
+                if((theaterBrand === "전체") && (theaterLocation === "전체")){return true;}
+                else if(theaterBrand === "전체"){return (theaterLocation === cinema.LOCATION);}
+                else if(theaterLocation === "전체"){return (theaterBrand === cinema.THEATER_BRAND);}
+                else{return (theaterBrand === cinema.THEATER_BRAND) && (theaterLocation === cinema.LOCATION)}
             }).map((cinema) =>
-            
-                (<a>{cinema.THEATER_NAME}</a> )   
-        
-            )}
+                (<div>
+                  {cinema.LOCATION_DETAIL !== theaterLocDetail ? <a className = "detail_block">{cinema.LOCATION_DETAIL}</a> : null}
+                  {setLocDetail(cinema.LOCATION_DETAIL)}
+                  <div className="cinemas"> 
+                <Cinema
+                   theater_id = {cinema.idx}
+                   theater_name = {cinema.THEATER_NAME}
+                   theater_brand = {cinema.THEATER_BRAND}
+                   location = {cinema.LOCATION}
+                   location_detail = {cinema.LOCATION_DETAIL}
+                   vote_average = {0} 
+                   phone = {cinema.phone}
+    place_url = {cinema.place_url}
+    road_address_name = {cinema.road_address_name}
+                  />
+                  </div>
+                  </div>
+    ))}
         </div>
         </body>
         

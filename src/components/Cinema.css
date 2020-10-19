@@ -13,7 +13,7 @@
   position: relative;
   /* margin: 20px 10px; */
   max-width: 100%;
-  padding: 8px;
+  margin-top: 3px;
 }
 /* .cinema-poster {
   position: relative;
@@ -28,6 +28,7 @@
 /*   */
 
 .cinema-inf {
+  box-shadow: 3px 3px grey;
   display: flex;
   flex-direction: column;
   /*  position: absolute; */
@@ -36,10 +37,12 @@
   width: 100%;
   align-self: end;
   background-color: white;
-  border-radius: 8px 8px;
+  /* border-radius: 8px 8px; */
   /*margin: 8px;*/
   visibility: visible;
   transition: visibility 500ms;
+  outline-style: groove;
+  outline-width: 1px;
 }
 
 .cinema-inf-top {

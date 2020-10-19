@@ -12,7 +12,9 @@ function Cinema({
     vote_average,
     phone,
     place_url,
-    road_address_name,    
+    road_address_name,
+    x,
+    y,    
 
 }) {
     return (
@@ -20,7 +22,7 @@ function Cinema({
         <div className="cinema">
             <Link
         to={{
-          pathname: `/theaters`,
+          pathname: `/theaterinfo/${theater_id}`,
           state: {
             theater_id,
     theater_name,
@@ -30,7 +32,9 @@ function Cinema({
     vote_average,
     phone,
     place_url,
-    road_address_name,   
+    road_address_name,
+    x,
+    y,  
           },
         }}
       >

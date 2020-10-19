@@ -1,7 +1,4 @@
-import { faShower } from "@fortawesome/free-solid-svg-icons"
-import { array, arrayOf } from "prop-types"
 import React, {useState} from "react"
-import {Link} from "react-router-dom"
 import Theater_data from "../json/Theater_data.json"
 import Cinema from "../components/Cinema"
 import "./Theaters.css";
@@ -47,7 +44,7 @@ const Theaters = () => {
               </ul>
               <ul className = "location_name">
                   {locationList.map((name) => 
-    <li>
+    <li key={name}>
         <button className={"btnloc"+((theaterLocation===`${name}`) ? "active" : "default")} onClick={() => setTheaterLocation(`${name}`)}>{name}</button>
     </li>)}
               </ul>
@@ -59,7 +56,7 @@ const Theaters = () => {
                 else if(theaterLocation === "전체"){return (theaterBrand === cinema.THEATER_BRAND);}
                 else{return (theaterBrand === cinema.THEATER_BRAND) && (theaterLocation === cinema.LOCATION)}
             }).map((cinema) =>
-                (<div>
+                (<div key={cinema.idx}>
                   {cinema.LOCATION_DETAIL !== theaterLocDetail ? <a className = "detail_block">{cinema.LOCATION_DETAIL}</a> : null}
                   {setLocDetail(cinema.LOCATION_DETAIL)}
                   <div className="cinemas"> 
@@ -71,6 +68,8 @@ const Theaters = () => {
                    location_detail = {cinema.LOCATION_DETAIL}
                    vote_average = {0} 
                    phone = {cinema.phone}
+                   x = {cinema.x}
+                   y = {cinema.y}
     place_url = {cinema.place_url}
     road_address_name = {cinema.road_address_name}
                   />

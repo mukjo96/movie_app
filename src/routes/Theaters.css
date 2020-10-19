@@ -14,6 +14,7 @@
 }
 .detail_block {
   margin: 0 auto;
+  margin-top: 5px;
   text-align: center;
   display: block;
   font-weight: bold;
@@ -45,7 +46,7 @@ button {
   border-radius: 1px 1px;
 }
 button:hover {
-  background: #eff3f7;
+  background: #f2dcb3;
   color: black;
 }
 button:before,
@@ -72,12 +73,14 @@ button:hover:after {
 }
 
 .btnlocactive {
-  color: #f2dcb3;
+  background: #f2dcb3;
+  color: black;
   border-radius: 1px 1px;
 }
 
 .btnbractive {
-  color: #f2dcb3;
+  background: #f2dcb3;
+  color: black;
   border-radius: 1px 1px;
 }
 

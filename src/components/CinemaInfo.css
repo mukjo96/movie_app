@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.cinemas .cinemaInfo {
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  background-color: white;
+  max-width: 75%;
+  max-height: 85%;
+  margin: 0 auto;
+  margin-bottom: 70px;
+  font-weight: 300;
+  border-radius: 5px;
+  margin-top: 10%;
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  margin-top: -5%;
+  text-decoration: none;
+  color: black;
+}
+
+.cinemaInfo {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cinemaInfo .cinemaInfo__data .cinemaInfo__title h4 {
+  font-weight: 150;
+}
+
+.cinemaInfo img {
+  position: relative;
+  max-width: 100px;
+  width: 100%;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.cinemaInfo__production {
+  margin-top: 20px;
+}
+
+.cinemaInfo__data {
+  width: 75%;
+  height: 75%;
+  padding: 10px;
+  text-align: left;
+  text-shadow: 10% 10% black;
+}
+
+.cinemaInfo__map {
+  margin-top: 50px;
+  outline-style: groove;
+  outline-width: 1px;
+  box-shadow: 2px 2px gray;
+}
+
+html > body #content {
+  width: 370px;
+}
+.star {
+  color: orange;
+}
+
+@media (max-width: 670px) {
+  .cinemaInfo {
+    margin-top: 15%;
+  }
+  .cinemaInfo img {
+    max-width: 100px;
+    width: 100%;
+    margin-bottom: -40px;
+  }
+  .cinemaInfo .cinemaInfo__data {
+    width: 100%;
+    margin-right: 0;
+  }
+}

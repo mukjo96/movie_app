@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./CinemaInfo.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -7,63 +7,23 @@ import { faStar, faUser } from "@fortawesome/free-solid-svg-icons";
 import cgv from "../res/cgv.png";
 import lottecinema from "../res/lottecinema.png";
 import megabox from "../res/megabox.png";
-import Map from "./Map"
+import Map from "./Map";
 
 function CinemaInfo({
-    theater_id,
-    theater_name,
-    theater_brand,
-    location,
-    location_detail,
-    vote_average,
-    phone,
-    place_url,
-    road_address_name,
-    x,
-    y,
-    la,
-    lo,
+  theater_id,
+  theater_name,
+  theater_brand,
+  theater_location,
+  theater_location_detail,
+  vote_average,
+  phone,
+  place_url,
+  road_address_name,
+  id,
+  x,
+  y,
+  distance,
 }) {
-
-    const [distance, setDistance] = useState("-1")
-    
-
-    if (navigator.geolocation) {
-        // GeoLocation을 이용해서 접속 위치를 얻어옵니다.
-        navigator.geolocation.getCurrentPosition(function(position){
-            
-            var lat = position.coords.latitude, // 위도
-                lon = position.coords.longitude; // 경도
-                la = lat
-                lo = lon
-                
-                var dis = getDistanceFromLatLonInKm(la, lo, y, x)
-                if(dis > 1){
-                    setDistance(String(Math.floor(dis))+"k")
-                }
-                else{
-                    setDistance(String(Math.floor(dis*1000)))
-                }
-                console.log(dis)
-                
-        });
-    } else {   
-
-    }
-    
-    function getDistanceFromLatLonInKm(lat1,lng1,lat2,lng2) { 
-        function deg2rad(deg) { 
-            return deg * (Math.PI/180) } 
-            var R = 6371; // Radius of the earth in km 
-    var dLat = deg2rad(lat2-lat1); // deg2rad below 
-    var dLon = deg2rad(lng2-lng1); 
-    var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2); var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-    var d = R * c; // Distance in km 
-    return d;
-
-}
-
-
   return (
     <div
       className="cinemaInfo"
@@ -72,44 +32,64 @@ function CinemaInfo({
       }} */
     >
       <div className="bg_filter">
-          {theater_brand === "CGV" ? <img
-          src={cgv}
-          alt={theater_brand}
-          title={theater_brand}
-          className="brand_logo"
-        /> : null }
-        {theater_brand === "롯데시네마" ? <img
-          src={lottecinema}
-          alt={theater_brand}
-          title={theater_brand}
-          className="brand_logo"
-        /> : null }
-        {theater_brand === "메가박스" ? <img
-          src={megabox}
-          alt={theater_brand}
-          title={theater_brand}
-          className="brand_logo"
-        /> : null }
+        {theater_brand === "CGV" ? (
+          <img
+            src={cgv}
+            alt={theater_brand}
+            title={theater_brand}
+            className="brand_logo"
+          />
+        ) : null}
+        {theater_brand === "롯데시네마" ? (
+          <img
+            src={lottecinema}
+            alt={theater_brand}
+            title={theater_brand}
+            className="brand_logo"
+          />
+        ) : null}
+        {theater_brand === "메가박스" ? (
+          <img
+            src={megabox}
+            alt={theater_brand}
+            title={theater_brand}
+            className="brand_logo"
+          />
+        ) : null}
         <div className="cinemaInfo__data">
           <div className="cinemaInfo__title">
             <a>
               <h1>{theater_name}</h1>
             </a>
+          </div>
+          <div className="cinemaInfo__brand">
             <h4>{theater_brand}</h4>
           </div>
           <div className="cinemaInfo__details">
             <h5 className="cinemaInfo__address">{road_address_name}</h5>
             <h5 className="cinemaInfo__phone">{phone}</h5>
-            <a href={place_url} target="_blank">지도에서 보기</a>
+
             <h5>
               평점 : <FontAwesomeIcon className="star" icon={faStar} />
-              {vote_average} {/* ({" "}
+              {vote_average}{" "}
+              {/* ({" "}
               <FontAwesomeIcon className="people" icon={faUser} />
               {" " + vote_count} ) */}
             </h5>
-            {(distance !== "-1") ? <a>{distance}m 거리에 있습니다.</a> : null}
-            <div className="cinemaInfo__map">
+            {distance ? (
+              <h5>현재 위치에서 {distance}m 떨어져 있습니다.</h5>
+            ) : null}
+            <div className="cinemaInfo__kakaomap">
+              <a className="cinemaInfo__url" href={place_url} target="_blank">
+                상세페이지
+              </a>
+              <a> </a>
+              <a href={`https://map.kakao.com/link/to/${id}`} target="_blank">
+                길찾기
+              </a>
+              <div className="cinemaInfo__map">
                 <Map address={road_address_name} name={theater_name} />
+              </div>
             </div>
             {/* <ul className="cinemaInfo__nation">
               {production_countries.map((country, index) => (

@@ -45,6 +45,9 @@
   outline-width: 1px;
 }
 
+.middle_line {
+  border: thin solid;
+}
 .cinema-inf-top {
   text-align: left;
   font-weight: bolder;
@@ -80,10 +83,15 @@
   text-align: center;
 }
 
-.phone {
+.mapmarker {
   margin: auto auto;
-  font-size: 12px;
+  font-size: 14px;
   margin-right: 3px;
+  color: orange;
+}
+
+.phonenum {
+  align-items: center;
 }
 
 .cinema-inf-vote-avg .star {
@@ -109,6 +117,10 @@
 
   .cinema-inf {
     font-size: 12px;
+  }
+
+  .mapmarker {
+    font-size: 10px;
   }
 
   .cinema-inf-btm {

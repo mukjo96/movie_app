@@ -32,7 +32,7 @@
 }
 
 /* GENERAL BUTTON STYLING */
-button {
+.checklist button {
   background: #1b1159;
   color: #fff;
   border: none;
@@ -45,12 +45,12 @@ button {
   outline: none;
   border-radius: 1px 1px;
 }
-button:hover {
+.checklist button:hover {
   background: #f2dcb3;
   color: black;
 }
-button:before,
-button:after {
+.checklist button:before,
+.checklist button:after {
   content: "";
   position: absolute;
   top: 0;
@@ -60,27 +60,27 @@ button:after {
   background: #1b1159;
   transition: 400ms ease all;
 }
-button:after {
+.checklist button:after {
   right: inherit;
   top: inherit;
   left: 0;
   bottom: 0;
 }
-button:hover:before,
-button:hover:after {
+.checklist button:hover:before,
+.checklist button:hover:after {
   width: 100%;
   transition: 800ms ease all;
 }
 
 .btnlocactive {
-  background: #f2dcb3;
-  color: black;
+  background: #f2dcb3 !important;
+  color: black !important;
   border-radius: 1px 1px;
 }
 
 .btnbractive {
-  background: #f2dcb3;
-  color: black;
+  background: #f2dcb3 !important;
+  color: black !important;
   border-radius: 1px 1px;
 }
 
@@ -96,7 +96,7 @@ button:hover:after {
 }
 @media screen and (max-width: 1200px) {
   /* GENERAL BUTTON STYLING */
-  button {
+  .checklist button {
     background: #1b1159;
     color: #fff;
     border: none;
@@ -119,9 +119,9 @@ button:hover:after {
     margin: 0 1px;
   }
   .cinemas {
-    width: 80%;
+    width: 85%;
   }
-  button {
+  .checklist button {
     background: #1b1159;
     color: #fff;
     border: none;
@@ -134,12 +134,12 @@ button:hover:after {
     outline: none;
     border-radius: 1px 1px;
   }
-  button:hover {
+  .checklist button:hover {
     background: #eff3f7;
     color: black;
   }
-  button:before,
-  button:after {
+  .checklist button:before,
+  .checklist button:after {
     content: "";
     position: absolute;
     top: 0;
@@ -149,14 +149,14 @@ button:hover:after {
     background: #1b1159;
     transition: 300ms ease all;
   }
-  button:after {
+  .checklist button:after {
     right: inherit;
     top: inherit;
     left: 0;
     bottom: 0;
   }
-  button:hover:before,
-  button:hover:after {
+  .checklist button:hover:before,
+  .checklist button:hover:after {
     width: 100%;
     transition: 800ms ease all;
   }

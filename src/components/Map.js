@@ -37,7 +37,7 @@ const Map = ({ address, name }) => {
         map.setCenter(coords);
       }
     });
-  }, []);
+  }, [address, name]);
 
   return (
     <div

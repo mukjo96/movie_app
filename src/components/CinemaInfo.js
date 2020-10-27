@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CinemaInfo.css";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import cgv from "../res/cgv.png";
 import lottecinema from "../res/lottecinema.png";
 import megabox from "../res/megabox.png";
@@ -58,9 +56,7 @@ function CinemaInfo({
         ) : null}
         <div className="cinemaInfo__data">
           <div className="cinemaInfo__title">
-            <a>
-              <h1>{theater_name}</h1>
-            </a>
+            <h1>{theater_name}</h1>
           </div>
           <div className="cinemaInfo__brand">
             <h4>{theater_brand}</h4>
@@ -80,11 +76,19 @@ function CinemaInfo({
               <h5>현재 위치에서 {distance}m 떨어져 있습니다.</h5>
             ) : null}
             <div className="cinemaInfo__kakaomap">
-              <a className="cinemaInfo__url" href={place_url} target="_blank">
+              <a
+                className="cinemaInfo__url"
+                href={place_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 상세페이지
               </a>
-              <a> </a>
-              <a href={`https://map.kakao.com/link/to/${id}`} target="_blank">
+              <a
+                href={`https://map.kakao.com/link/to/${id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 길찾기
               </a>
               <div className="cinemaInfo__map">

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Movie from "../components/Movie";
-import "./Home.css";
+import "./NowPlaying.css";
 import Searchbar from "../components/Searchbar.js";
 class Search extends React.Component {
   state = {

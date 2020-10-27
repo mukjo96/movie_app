@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMapMarker,
-  faMapMarkerAlt,
-  faPhone,
-  faStar,
-} from "@fortawesome/free-solid-svg-icons";
+import LoadingIcon from "./LoadingIcon.js";
+import { faMapMarkerAlt, faStar } from "@fortawesome/free-solid-svg-icons";
 import "./Cinema.css";
+
 function Cinema({
   theater_id,
   theater_name,
@@ -26,11 +23,6 @@ function Cinema({
 }) {
   const [distance, setDistance] = useState("-1");
   const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    getDistance();
-    setIsLoading(false);
-  }, []);
 
   const getDistance = () => {
     if (navigator.geolocation) {
@@ -70,11 +62,16 @@ function Cinema({
     return d;
   }
 
+  useEffect(() => {
+    getDistance();
+    setIsLoading(false);
+  }, [getDistance, setIsLoading]);
+
   return (
     <div>
       {isLoading ? (
-        <div className="loader">
-          <span className="loader__text">Loading...</span>
+        <div id="loading-icon">
+          <LoadingIcon />
         </div>
       ) : (
         <div className="cinema">

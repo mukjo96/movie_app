@@ -42,10 +42,9 @@ a {
 
 .cinemaInfo img {
   position: relative;
-  max-width: 100px;
+  max-width: 150px;
   width: 100%;
-  margin-right: 30px;
-  margin-left: 30px;
+  margin: -30px 0 -40px 0;
 }
 
 .cinemaInfo__production {
@@ -87,7 +86,7 @@ html > body #content {
   .cinemaInfo img {
     max-width: 100px;
     width: 100%;
-    margin-bottom: -40px;
+    margin: -15px 0 -25px 0;
   }
   .cinemaInfo .cinemaInfo__data {
     width: 100%;

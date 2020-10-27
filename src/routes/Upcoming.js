@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import queryString from "query-string";
 import Movie from "../components/Movie";
 import axios from "axios";
-import "./Home.css";
+import "./NowPlaying.css";
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
+import LoadingIcon from "../components/LoadingIcon";
 
-const Upcoming = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+const Upcoming = ({ location, history }) => {
+  const query = queryString.parse(location.search);
+  const nowpage = parseInt(query.page);
+
+  const [currentPage, setCurrentPage] = useState(nowpage || 1);
   const [totalPage, setTotalPage] = useState(20);
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    getTopRated();
-  }, [currentPage]);
-
-  const getTopRated = async () => {
+  const getUpcoming = useCallback(async () => {
     let response = await axios.get(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=${currentPage}&region=KR`
     );
@@ -23,8 +24,12 @@ const Upcoming = () => {
     setMovies(response.data.results);
     setIsLoading(false);
     setTotalPage(response.data.total_results);
-    console.log(response.data.total_pages);
-  };
+  }, [currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(nowpage);
+    getUpcoming();
+  }, [getUpcoming, nowpage]);
 
   return (
     <body className="container">
@@ -36,13 +41,16 @@ const Upcoming = () => {
           showPrevNextJumpers={true}
           style={{ marginTop: "2%" }}
           pageSize={20}
-          onChange={(page) => setCurrentPage(page)}
+          onChange={(page) => {
+            setCurrentPage(page);
+            history.push(`/upcoming?page=${page}`);
+          }}
         />
       </div>
 
       {isLoading ? (
-        <div className="loader">
-          <span className="loader__text">Loading...</span>
+        <div id="loading-icon">
+          <LoadingIcon />
         </div>
       ) : (
         <div className="movies">

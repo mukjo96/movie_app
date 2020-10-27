@@ -1,11 +1,8 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "./About.css";
-import Theater_data from "../json/Theater_data.json"
-
 
 /* const { kakao } = window;
 const Cinemas = Array.from(Theater_data) */
-
 
 const About = ({ searchPlace }) => {
   /* var a = []
@@ -46,14 +43,15 @@ const About = ({ searchPlace }) => {
     }
   }, [searchPlace]); */
 
-return (
-    <body>{/* <div id='myMap' style={{
+  return (
+    <body>
+      {/* <div id='myMap' style={{
         width: '500px', 
         height: '500px'
     }}></div> */}
-    <span>준비중..</span>
+      <span>준비중..</span>
     </body>
-);
-}
+  );
+};
 
 export default About;

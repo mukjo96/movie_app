@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Theater_data from "../json/Theater_data.json";
 import Cinema from "../components/Cinema";
 import "./Theaters.css";
@@ -114,7 +114,7 @@ const Theaters = () => {
         }).map((cinema) => (
           <div key={cinema.idx}>
             {cinema.LOCATION_DETAIL !== theaterLocDetail ? (
-              <a className="detail_block">{cinema.LOCATION_DETAIL}</a>
+              <h4 className="detail_block">{cinema.LOCATION_DETAIL}</h4>
             ) : null}
             {setLocDetail(cinema.LOCATION_DETAIL)}
             <div className="cinemas">

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import LoadingIcon from "../components/LoadingIcon";
 import MovieDetail from "../components/MovieDetail";
 import "./Detail.css";
 
@@ -33,8 +34,8 @@ class Detail extends React.Component {
     return (
       <section className="container">
         {isLoading ? (
-          <div className="loader">
-            <span className="loader__text">Loading...</span>
+          <div id="loading-icon">
+            <LoadingIcon />
           </div>
         ) : (
           <div className="details">

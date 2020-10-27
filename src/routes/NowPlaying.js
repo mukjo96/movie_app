@@ -7,7 +7,7 @@ import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
 import LoadingIcon from "../components/LoadingIcon";
 
-const TopRateds = ({ location, history }) => {
+const NowPlaying = ({ location, history }) => {
   const query = queryString.parse(location.search);
   const nowpage = parseInt(query.page);
 
@@ -16,9 +16,9 @@ const TopRateds = ({ location, history }) => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getTopRated = useCallback(async () => {
+  const getNowplaying = useCallback(async () => {
     let response = await axios.get(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=${currentPage}&region=KR`
+      `https://api.themoviedb.org/3/movie/now_playing?sort_by=vote_average.desc&api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=${currentPage}&region=KR`
     );
 
     setMovies(response.data.results);
@@ -28,8 +28,8 @@ const TopRateds = ({ location, history }) => {
 
   useEffect(() => {
     setCurrentPage(nowpage);
-    getTopRated();
-  }, [getTopRated, nowpage]);
+    getNowplaying();
+  }, [getNowplaying, nowpage]);
 
   return (
     <body className="container">
@@ -45,7 +45,7 @@ const TopRateds = ({ location, history }) => {
             setCurrentPage(page);
             history.push(`/nowplaying?page=${page}`);
           }}
-        />
+        ></Pagination>
       </div>
 
       {isLoading ? (
@@ -73,4 +73,4 @@ const TopRateds = ({ location, history }) => {
   );
 };
 
-export default TopRateds;
+export default NowPlaying;

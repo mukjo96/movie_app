@@ -44,6 +44,7 @@
   transition: 800ms ease all;
   outline: none;
   border-radius: 1px 1px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
 }
 .checklist button:hover {
   background: #f2dcb3;

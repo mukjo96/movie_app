@@ -1,7 +1,5 @@
 import React from "react";
 import "./MovieDetail.css";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faUser } from "@fortawesome/free-solid-svg-icons";
 

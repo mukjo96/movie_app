@@ -32,7 +32,7 @@ const AuthForm = () => {
         );
       }
     } catch (error) {
-      setError(error);
+      setError(error.message);
     }
   };
   const toggleAccount = () => setNewAccount((prev) => !prev);

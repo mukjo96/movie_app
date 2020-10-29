@@ -1,7 +1,8 @@
 import React from "react";
+import { authService } from "../fBase";
 
-function Home() {
-  return <div>Home..</div>;
+function Home({ userObj }) {
+  return <div>User : {userObj.displayName}</div>;
 }
 
 export default Home;

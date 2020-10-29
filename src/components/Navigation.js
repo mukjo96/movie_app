@@ -1,22 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { authService } from "../fBase";
 import "./Navigation.css";
-import cgv from "../res/cgv.png";
-import lottecinema from "../res/lottecinema.png";
-import megabox from "../res/megabox.png";
 import HamburgerMenu from "react-hamburger-menu";
 import logo from "../res/logo512.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignInAlt, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt, faUser } from "@fortawesome/free-solid-svg-icons";
 
 class Navigation extends React.Component {
   state = {
     isOpen: false,
     text: "",
   };
+
   handleClick = () => this.setState({ open: !this.state.open });
   onChange = (event) => {
     console.log(event.target.value);
+  };
+
+  onLogOutClick = () => {
+    authService.signOut();
+    this.props.history.push("/");
   };
 
   render() {
@@ -56,9 +60,12 @@ class Navigation extends React.Component {
             className={"navbar__icons" + (this.state.open ? "show" : "hidden")}
           >
             <li>
-              <Link to="/login">
-                <FontAwesomeIcon icon={faSignInAlt} color={"#eff3f7"} />
-              </Link>
+              <FontAwesomeIcon
+                className="Logout"
+                icon={faSignOutAlt}
+                color={"#eff3f7"}
+                onClick={this.onLogOutClick}
+              />
             </li>
             <li>
               <Link to="/profile">
@@ -82,4 +89,4 @@ class Navigation extends React.Component {
   }
 }
 
-export default Navigation;
+export default withRouter(Navigation);

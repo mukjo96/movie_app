@@ -71,7 +71,7 @@ function Cinema({
     <div>
       {isLoading ? (
         <div id="loading-icon">
-          <LoadingIcon />
+          <LoadingIcon className="cinemaloading" />
         </div>
       ) : (
         <div className="cinema">

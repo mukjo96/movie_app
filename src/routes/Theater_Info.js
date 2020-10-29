@@ -1,4 +1,6 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
+import { authService, dbService } from "../fBase";
 import CinemaInfo from "../components/CinemaInfo";
 import LoadingIcon from "../components/LoadingIcon";
 import "./Detail.css";
@@ -49,6 +51,7 @@ class Theater_Info extends React.Component {
               x={cinemas.x}
               y={cinemas.y}
               distance={cinemas.distance}
+              userObj={this.props.userObj}
             />
           </div>
         )}
@@ -57,4 +60,4 @@ class Theater_Info extends React.Component {
   }
 }
 
-export default Theater_Info;
+export default withRouter(Theater_Info);

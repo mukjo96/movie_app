@@ -21,6 +21,7 @@ function CinemaInfo({
   x,
   y,
   distance,
+  userObj,
 }) {
   return (
     <div

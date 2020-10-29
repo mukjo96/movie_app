@@ -12,9 +12,8 @@
   margin-top: 50px;
   background-color: #eff3f7;
   padding: 20px;
-  box-shadow: -2px -2px 5px rgba(250, 250, 250, 1),
-    3px 3px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  box-shadow: 15px 15px 30px #bfc2c6, -15px -15px 30px #ffffff;
+  border-radius: 20px;
 }
 
 .authBtns {
@@ -26,8 +25,7 @@
 
 .authBtns button {
   margin: 0 -2%;
-  box-shadow: -2px -2px 5px rgba(250, 250, 250, 1),
-    3px 3px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 10px #bfc2c6, -5px -5px 10px #ffffff;
 }
 
 .loginlogo {

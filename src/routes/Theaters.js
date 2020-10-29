@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { authService, dbService } from "../fBase";
 import Theater_data from "../json/Theater_data.json";
 import Cinema from "../components/Cinema";
 import "./Theaters.css";
 
 const Cinemas = Array.from(Theater_data);
 
-const Theaters = () => {
+const Theaters = ({ userObj }) => {
   const [theaterBrand, setTheaterBrand] = useState("전체");
   const [theaterLocation, setTheaterLocation] = useState("전체");
 
@@ -98,17 +99,17 @@ const Theaters = () => {
         </ul>
       </div>
       <div>
-        {Cinemas.filter((cinema) => {
+        {Cinemas.filter((cinemaf) => {
           if (theaterBrand === "전체" && theaterLocation === "전체") {
             return true;
           } else if (theaterBrand === "전체") {
-            return theaterLocation === cinema.LOCATION;
+            return theaterLocation === cinemaf.LOCATION;
           } else if (theaterLocation === "전체") {
-            return theaterBrand === cinema.THEATER_BRAND;
+            return theaterBrand === cinemaf.THEATER_BRAND;
           } else {
             return (
-              theaterBrand === cinema.THEATER_BRAND &&
-              theaterLocation === cinema.LOCATION
+              theaterBrand === cinemaf.THEATER_BRAND &&
+              theaterLocation === cinemaf.LOCATION
             );
           }
         }).map((cinema) => (

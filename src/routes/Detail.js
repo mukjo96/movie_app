@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { withRouter } from "react-router-dom";
 import LoadingIcon from "../components/LoadingIcon";
 import MovieDetail from "../components/MovieDetail";
 import "./Detail.css";
@@ -62,4 +63,4 @@ class Detail extends React.Component {
   }
 }
 
-export default Detail;
+export default withRouter(Detail);

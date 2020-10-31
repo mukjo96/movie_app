@@ -23,7 +23,7 @@
   padding: 12px 24px;
 
   background-color: transparent;
-  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out !important;
   font-size: 14px;
   line-height: 18px;
 
@@ -37,7 +37,7 @@
   background-position: 95% center;
   border-radius: 50px;
   border: 1px solid #575756;
-  transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out !important;
   backface-visibility: hidden;
   transform-style: preserve-3d;
 }

@@ -1,13 +1,21 @@
 import React from "react";
 import axios from "axios";
+import queryString from "query-string";
 import Movie from "../components/Movie";
 import "./NowPlaying.css";
 import Searchbar from "../components/Searchbar.js";
+import LoadingIcon from "../components/LoadingIcon";
 class Search extends React.Component {
   state = {
     isLoading: true,
     movies: [],
   };
+
+  searchtext = queryString.parse(this.props.location.search).text;
+
+  componentDidMount() {
+    this.onSearchSubmit(this.searchtext);
+  }
 
   onSearchSubmit = async (text) => {
     const {
@@ -26,8 +34,9 @@ class Search extends React.Component {
       <body className="container">
         <Searchbar onSubmit={this.onSearchSubmit} />
         {isLoading ? (
-          <div className="loader">
-            <span className="loader__text">검색어를 입력하세요.</span>
+          <div>
+            <h4 className="pleaseinput"> 검색어를 입력하세요.</h4>
+            <LoadingIcon />
           </div>
         ) : (
           <div className="movies">

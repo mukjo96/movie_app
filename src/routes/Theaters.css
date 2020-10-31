@@ -31,6 +31,10 @@
   justify-content: center;
 }
 
+.containers li {
+  margin: 3px;
+}
+
 /* GENERAL BUTTON STYLING */
 .checklist button {
   background: #1b1159;
@@ -111,12 +115,12 @@
     border-radius: 1px 1px;
   }
 
-  li {
+  .containers li {
     margin-top: 0.5em;
   }
 }
 @media screen and (max-width: 600px) {
-  li {
+  .containers li {
     margin: 0 1px;
   }
   .cinemas {

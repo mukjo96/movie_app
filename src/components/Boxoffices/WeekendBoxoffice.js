@@ -77,5 +77,5 @@ export function getCurrentDate(separator = "") {
 
   return `${year}${separator}${
     month < 10 ? `0${month}` : `${month}`
-  }${separator}${date}`;
+  }${separator}${date < 10 ? `0${date}` : `${date}`}`;
 }

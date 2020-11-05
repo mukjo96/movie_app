@@ -1,4 +1,46 @@
-@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+.containerc {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 70em;
+}
+
+html > body #content {
+  width: 100%;
+}
+
+.cinema_brands img {
+  height: 4em;
+  margin: -1em 0;
+}
+.map_buttons {
+  margin: 0 0 3.5em 0;
+}
+
+@media screen and (max-width: 1680px) {
+  .containerc {
+    width: 68em;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .containerc {
+    width: calc(100% - 80px);
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .containerc {
+    width: calc(100% - 100px);
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .containerc {
+    width: calc(100% - 40px);
+  }
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -93,3 +135,4 @@ html > body #content {
     margin-right: 0;
   }
 }
+ */

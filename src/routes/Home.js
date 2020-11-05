@@ -9,9 +9,6 @@ import "./Home.css";
 
 function Home({ userObj, history }) {
   const [first, setFirst] = useState(true);
-  const [searchText, setSearchText] = useState("");
-  const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
-
   const onSearchSubmit = (text) => {
     history.push(`/search?text=${text}`);
   };

@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faGithub } from "@fortawesome/free-brands-svg-icons";
 import logo from "../res/logo512.png";
 import "./Auth.css";
+import AppRouter from "../components/Router";
+import App from "../App";
 
 const Auth = () => {
   const onSocialClick = async (event) => {

@@ -90,8 +90,8 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
+  /*   font-size: 100%; */
+  /*   font: inherit; */
   vertical-align: baseline;
 }
 
@@ -192,7 +192,7 @@ q:after {
 .home input,
 .home textarea,
 .home select {
-  font-family: "Source Sans Pro";
+  font-family: "Noto Sans KR";
   font-weight: 300;
   color: #777;
   line-height: 1.65em;
@@ -1605,7 +1605,7 @@ article:last-child {
 .image.featured {
   display: block;
   width: 100%;
-  margin: 0 0 3.5em 0;
+  margin: 0 0 0.5em 0;
 }
 
 .image.left {
@@ -1628,7 +1628,7 @@ article:last-child {
 /* List */
 
 .home ul {
-  list-style: disc;
+  list-style: none;
   padding-left: 1em;
 }
 

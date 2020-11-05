@@ -50,7 +50,8 @@
 }
 .cinema-inf-top {
   text-align: left;
-  font-weight: bolder;
+  font-weight: bold;
+  color: #000000c5 !important;
 }
 
 .cinema-inf-btm {
@@ -85,7 +86,7 @@
 
 .mapmarker {
   margin: auto auto;
-  font-size: 14px;
+  font-size: 15px;
   margin-right: 3px;
   color: orange;
 }
@@ -120,14 +121,14 @@
   }
 
   .cinema-inf {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .mapmarker {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .cinema-inf-btm {
-    font-size: 10px;
+    font-size: 12px;
   }
 }

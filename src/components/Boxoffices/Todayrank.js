@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Todayrank({ rank, rankInten, movieNm, audiAcc }) {
   return (
@@ -9,8 +10,14 @@ function Todayrank({ rank, rankInten, movieNm, audiAcc }) {
           {rankInten}
         </li>
         <li className="movieNm">
-          {movieNm.slice(0, 17)}
-          {movieNm.length > 17 ? "..." : ""}
+          <Link
+            to={{
+              pathname: `/search?text=${movieNm.slice(0, 10)}`,
+            }}
+          >
+            {movieNm.slice(0, 13)}
+            {movieNm.length > 13 ? "..." : ""}
+          </Link>
         </li>
         <li className="audiAcc">{numberWithCommas(audiAcc)}</li>
       </ul>

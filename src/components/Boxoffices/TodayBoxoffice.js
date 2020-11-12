@@ -15,7 +15,6 @@ const TodayBoxoffice = () => {
           (getCurrentDate() - 1)
       );
       setMovies(response.data.boxOfficeResult.dailyBoxOfficeList);
-      console.log(movies);
     } catch (error) {
       console.log(error);
     }

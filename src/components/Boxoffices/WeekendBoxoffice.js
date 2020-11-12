@@ -15,7 +15,6 @@ const WeekendBoxoffice = () => {
           (getCurrentDate() - 7)
       );
       setMovies(response.data.boxOfficeResult.weeklyBoxOfficeList);
-      console.log(movies);
     } catch (error) {
       console.log(error);
     }

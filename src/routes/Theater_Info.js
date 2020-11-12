@@ -35,9 +35,7 @@ class Theater_Info extends React.Component {
           <div id="page-wrapper">
             <section id="header">
               <div className="container">
-                <h1 id="logo">
-                  <a href="index.html">THEATER INFO</a>
-                </h1>
+                <h1 id="logo">THEATER INFO</h1>
                 <p>선택하신 영화관의 상세 정보입니다.</p>
               </div>
             </section>

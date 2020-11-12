@@ -12,6 +12,7 @@ import Theaters from "../routes/Theaters";
 import Theater_Info from "../routes/Theater_Info";
 import Home from "../routes/Home";
 import Auth from "../routes/Auth";
+import Profile from "../routes/Profile";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
@@ -41,6 +42,9 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             </Route>
             <Route path="/theaterinfo/:id">
               <Theater_Info userObj={userObj} />
+            </Route>
+            <Route exact path="/profile">
+              <Profile userObj={userObj} refreshUser={refreshUser} />
             </Route>
           </div>
         ) : (

@@ -14,7 +14,6 @@ const TopRatedlist = () => {
         `https://api.themoviedb.org/3/movie/top_rated?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=1&region=KR`
       );
       setMovies(response.data.results);
-      console.log(movies);
     } catch (error) {
       console.log(error);
     }

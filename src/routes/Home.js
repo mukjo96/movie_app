@@ -18,7 +18,7 @@ function Home({ userObj, history }) {
       <section id="header">
         <div className="container">
           <h1 id="logo">
-            <a href="index.html">Movie App</a>
+            <a href="#">Movie App</a>
           </h1>
 
           <p>

@@ -31,9 +31,7 @@ const Theaters = ({ userObj }) => {
     <div className="home">
       <section id="header">
         <div className="container">
-          <h1 id="logo">
-            <a href="index.html">Theaters</a>
-          </h1>
+          <h1 id="logo">Theaters</h1>
 
           <p>
             {userObj.displayName ? userObj.displayName + "님 " : null}

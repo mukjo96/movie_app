@@ -1,0 +1,17 @@
+.formInput {
+  padding: 4px;
+  background-color: red;
+  margin-right: 1%;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
+}
+
+.formBtn {
+  padding: 4px;
+  font-size: 70%;
+  background-color: #eff3f7;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
+}

@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 import { authService, dbService } from "../fBase";
 import CinemaInfo from "../components/CinemaInfo";
 import LoadingIcon from "../components/LoadingIcon";
+import ReviewFactory from "../components/ReviewFactory";
+import Review from "../components/Review";
 /* import "./Detail.css";
  */
 const { kakao } = window;
@@ -11,11 +13,12 @@ class Theater_Info extends React.Component {
   state = {
     cinemas: {},
     isLoading: true,
+    reviews: [],
   };
 
   getCinemaInfos = () => {
     const { location } = this.props;
-    this.setState({ cinemas: location.state, isLoading: false });
+    this.setState({ cinemas: location.state});
   };
 
   componentDidMount() {
@@ -24,11 +27,20 @@ class Theater_Info extends React.Component {
       history.push("/");
     } else {
       this.getCinemaInfos();
+      dbService.collection("reviews")
+      .orderBy("createdAt", "desc")
+      .onSnapshot((snapshot) => {
+        const reviewArray = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        this.setState({reviews: reviewArray, isLoading:false})
+      })
     }
   }
 
   render() {
-    const { isLoading, cinemas } = this.state;
+    const { isLoading, cinemas, reviews } = this.state;
     return (
       <div className="home">
         <body className="no-sidebar is-preload">
@@ -62,6 +74,21 @@ class Theater_Info extends React.Component {
                     distance={cinemas.distance}
                     userObj={this.props.userObj}
                   />
+                  <div>
+                    <ReviewFactory userObj={this.props.userObj} theaterId={cinemas.id} />
+                    <div style={{marginTop: 20 }}>
+                      {reviews.filter((reviewf) => {
+                        if
+                        (reviewf.theaterId === cinemas.id) return true;
+                      }).map((review) => (
+                        <Review
+                        key={review.id}
+                        reviewObj={review}
+                        isOwner={review.creatorId === this.props.userObj.uid}
+                        theaterId={cinemas.id} />
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
             </section>

@@ -13,6 +13,7 @@ import cgv from "../res/cgv.png";
 import lottecinema from "../res/lottecinema.png";
 import megabox from "../res/megabox.png";
 import Map from "./Map";
+import ReviewFactory from "./ReviewFactory";
 
 function CinemaInfo({
   theater_id,
@@ -116,6 +117,8 @@ function CinemaInfo({
             <FontAwesomeIcon className="star" icon={faStar} />
             {"\t:\t"}
             {vote_average}
+      
+    
           </p>
           {/* <ul>
             <li>

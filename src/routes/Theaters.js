@@ -45,7 +45,7 @@ const Theaters = ({ userObj }) => {
             <div className="container">
               <header>
                 <h2>
-                  <strong>브랜드와 지역</strong>을 선택하세요
+                  <strong>브랜드</strong>와 <strong>지역</strong>을 선택하세요
                 </h2>
               </header>
               <div className="col aln-center">

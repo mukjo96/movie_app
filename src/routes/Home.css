@@ -1792,7 +1792,8 @@ article:last-child {
 }
 
 .home form textarea {
-  min-height: 11em;
+  min-height: 5em;
+  
 }
 
 .home form ::-webkit-input-placeholder {

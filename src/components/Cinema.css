@@ -2,6 +2,29 @@
   box-sizing: border-box;
 }
 
+.submit_button{
+  background-color: #eff3f7;
+}
+
+.review-submit {
+  display: flex;
+  /*   flex-direction: column; */
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #eff3f7;
+  /*padding-left:8px;*/
+  /*padding-right: 8px;*/
+  padding: 4px;
+  color: white;
+  margin-top: 3px;
+  /*height: 22px;*/
+  align-self: center;
+  text-align: center;
+  border-radius: 5px;
+background: #eff3f7;
+box-shadow:  2px 2px 4px #cbcfd2, 
+             -2px -2px 4px #ffffff;
+}
 .cinema {
   margin: 0 auto;
   padding: 0;
@@ -63,9 +86,16 @@
 }
 .cinema-inf-overview {
   display: flex;
+  margin-right: 3px;
   flex-wrap: wrap;
   text-align: left;
   flex-direction: column;
+  width: -webkit-fill-available;
+
+}
+
+.cinema-inf-overview pre{
+  font-family: "Noto Sans KR" !important;
 }
 
 .cinema-inf-vote-avg {

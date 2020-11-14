@@ -75,6 +75,7 @@ class Theater_Info extends React.Component {
                     userObj={this.props.userObj}
                   />
                   <div>
+                    <div className="containerc">
                     <ReviewFactory userObj={this.props.userObj} theaterId={cinemas.id} />
                     <div style={{marginTop: 20 }}>
                       {reviews.filter((reviewf) => {
@@ -87,6 +88,7 @@ class Theater_Info extends React.Component {
                         isOwner={review.creatorId === this.props.userObj.uid}
                         theaterId={cinemas.id} />
                       ))}
+                    </div>
                     </div>
                   </div>
                 </div>

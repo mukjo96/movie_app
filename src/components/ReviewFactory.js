@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import {v4 as uuidv4} from "uuid";
 import {storageService, dbService } from "../fBase";
 import ReactStars from "react-rating-stars-component";
-import "./review.css";
+import "./Cinema.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 const ReviewFactory = ({userObj, theaterId}) => {
     const [review, setReview] = useState("");
     const [rating, setRating] = useState(0);
@@ -17,6 +19,7 @@ const ReviewFactory = ({userObj, theaterId}) => {
         createdAt: Date.now(),
         creatorId: userObj.uid,
         theaterId: theaterId,
+        nickName: userObj.displayName,
         rate: rating
     }
     await dbService.collection("reviews").add(reviewObj);
@@ -39,28 +42,43 @@ const ReviewFactory = ({userObj, theaterId}) => {
     } */
 
     const ratingChanged = (newRating) => {
-        console.log(newRating)
         setRating(newRating)
       };
 
 
     return (
         <form onSubmit={onSubmit} className="factoryForm">
-      <div className="factoryInput__container">
-      <ReactStars
-      classNames="factoryInput__rating"
+        <div className="cinema">
+            <div className="cinemaCard">
+              <div className="cinema-inf">
+                <div className="cinema-inf-top">
+                  <div className="cinema-inf-title"><ReactStars
       isHalf={true}
       onChange={ratingChanged}
-      />
-        <input
-          className="factoryInput__input"
+      required
+      >평가해주세요</ReactStars></div>
+                </div>
+                <div>
+                  <hr className="middle_line" />
+                </div>
+                <div className="cinema-inf-btm">
+                  <div className="cinema-inf-overview">
+                  <textarea
+                  className="review-input"
           value={review}
           onChange={onRevChange}
-          type="text"
+          row={3}
+          required
           placeholder="리뷰를 남겨주세요"
-          maxLength={120}
+          maxLength={1000}
         />
-        <input type="submit" value="&rarr;" className="factoryInput__arrow" />
+                  </div>
+                  <div className="review-submit">
+                  <input type="submit" className="submit_button" value="입력" />
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
     </form>
     )

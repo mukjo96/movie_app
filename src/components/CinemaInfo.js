@@ -7,13 +7,11 @@ import {
   faDirections,
   faPhone,
   faStar,
-  faTheaterMasks,
 } from "@fortawesome/free-solid-svg-icons";
 import cgv from "../res/cgv.png";
 import lottecinema from "../res/lottecinema.png";
 import megabox from "../res/megabox.png";
 import Map from "./Map";
-import ReviewFactory from "./ReviewFactory";
 
 function CinemaInfo({
   theater_id,

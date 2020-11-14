@@ -43,7 +43,7 @@ const TopRateds = ({ location, history }) => {
           pageSize={20}
           onChange={(page) => {
             setCurrentPage(page);
-            history.push(`/nowplaying?page=${page}`);
+            history.push(`/toprateds?page=${page}`);
           }}
         />
       </div>

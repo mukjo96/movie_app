@@ -1,11 +1,9 @@
 import { authService, dbService } from "../fBase";
-import React, { Profiler, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
 import "./Home.css";
 import "./Profile.css";
 const Profile = ({ userObj, refreshUser }) => {
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
-  const history = useHistory();
 
   /* const getMyNweets = async () => {
     const nweets = await dbService
@@ -27,7 +25,7 @@ const Profile = ({ userObj, refreshUser }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    if (userObj.displayName != newDisplayName) {
+    if (userObj.displayName !== newDisplayName) {
       await userObj.updateProfile({
         displayName: newDisplayName,
       });
@@ -43,7 +41,7 @@ const Profile = ({ userObj, refreshUser }) => {
           <h1 id="logo">Profile</h1>
 
           <p>
-            {userObj.displayName ? userObj.displayName + "님" : null}의
+            <strong>{userObj.displayName}</strong>님의
             프로필입니다.
           </p>
         </div>

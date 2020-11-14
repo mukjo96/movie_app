@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import {v4 as uuidv4} from "uuid";
 import {storageService, dbService } from "../fBase";
 import ReactStars from "react-rating-stars-component";
 import "./Cinema.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 const ReviewFactory = ({userObj, theaterId}) => {
     const [review, setReview] = useState("");
     const [rating, setRating] = useState(0);

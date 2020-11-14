@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import Todayrank from "./Todayrank";
 import LoadingIcon from "../LoadingIcon";
@@ -8,7 +8,7 @@ const TopRatedlist = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getTopRatedlist = async () => {
+  const getTopRatedlist = useCallback(async () => {
     try {
       let response = await axios.get(
         `https://api.themoviedb.org/3/movie/top_rated?api_key=cfaaa8c5177462f54ee54a30c746dca3&language=ko-KR&page=1&region=KR`
@@ -17,14 +17,14 @@ const TopRatedlist = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (isLoading === true) {
       getTopRatedlist();
     }
     setIsLoading(false);
-  }, [getTopRatedlist, setIsLoading]);
+  }, [getTopRatedlist, setIsLoading, isLoading]);
 
   return (
     <body className="container">

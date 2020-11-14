@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LoadingIcon from "./LoadingIcon.js";
@@ -18,22 +18,19 @@ function Cinema({
   id,
   x,
   y,
-  la,
-  lo,
 }) {
   const [distance, setDistance] = useState("-1");
   const [isLoading, setIsLoading] = useState(true);
 
-  const getDistance = () => {
+  const getDistance = useCallback(() => {
     if (navigator.geolocation) {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다.
       navigator.geolocation.getCurrentPosition(function (position) {
         var lat = position.coords.latitude, // 위도
           lon = position.coords.longitude; // 경도
-        la = lat;
-        lo = lon;
+        
 
-        var dis = getDistanceFromLatLonInKm(la, lo, y, x);
+        var dis = getDistanceFromLatLonInKm(lat, lon, y, x);
         if (dis > 1) {
           setDistance(String(Math.floor(dis)) + " k");
         } else {
@@ -42,7 +39,7 @@ function Cinema({
       });
     } else {
     }
-  };
+  }, [x, y]);
 
   function getDistanceFromLatLonInKm(lat1, lng1, lat2, lng2) {
     function deg2rad(deg) {

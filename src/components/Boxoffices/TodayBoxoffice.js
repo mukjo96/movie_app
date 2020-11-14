@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import Todayrank from "./Todayrank";
 import LoadingIcon from "../LoadingIcon";
@@ -8,7 +8,7 @@ const TodayBoxoffice = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getTodayBoxoffice = async () => {
+  const getTodayBoxoffice = useCallback(async () => {
     try {
       let response = await axios.get(
         `https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=373ddebd31b0a8811467c7be470256b2&targetDt=` +
@@ -18,14 +18,14 @@ const TodayBoxoffice = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (isLoading === true) {
       getTodayBoxoffice();
     }
     setIsLoading(false);
-  }, [getTodayBoxoffice, setIsLoading]);
+  }, [getTodayBoxoffice, setIsLoading, isLoading]);
 
   return (
     <body className="container">

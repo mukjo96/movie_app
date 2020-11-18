@@ -5,6 +5,8 @@ import CinemaInfo from "../components/CinemaInfo";
 import LoadingIcon from "../components/LoadingIcon";
 import ReviewFactory from "../components/ReviewFactory";
 import Review from "../components/Review";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, faUser } from "@fortawesome/free-solid-svg-icons";
 /* import "./Detail.css";
  */
 const { kakao } = window;
@@ -14,33 +16,41 @@ class Theater_Info extends React.Component {
     cinemas: {},
     isLoading: true,
     reviews: [],
+    rating_avg: 0,
+    rated_user: 0,
   };
 
   getCinemaInfos = () => {
     const { location } = this.props;
+    var ratingAverage = 0
     this.setState({ cinemas: location.state});
-  };
-
-  componentDidMount() {
-    const { location, history } = this.props;
-    if (location.state === undefined) {
-      history.push("/");
-    } else {
-      this.getCinemaInfos();
-      dbService.collection("reviews")
+    dbService.collection(`reviews-${location.state.id}`)
       .orderBy("createdAt", "desc")
       .onSnapshot((snapshot) => {
         const reviewArray = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        this.setState({reviews: reviewArray, isLoading:false})
+        reviewArray.map((review) => (
+          ratingAverage += review.rate
+        ))
+        ratingAverage = ratingAverage / reviewArray.length;
+        this.setState({reviews: reviewArray, isLoading:false, rating_avg: ratingAverage.toFixed(1), rated_user:reviewArray.length})
       })
+  };
+
+  
+  componentDidMount() {
+    const { location, history } = this.props;
+    if (location.state === undefined) {
+      history.push("/");
+    } else {
+      this.getCinemaInfos();
     }
   }
 
   render() {
-    const { isLoading, cinemas, reviews } = this.state;
+    const { isLoading, cinemas, reviews, rating_avg, rated_user } = this.state;
     return (
       <div className="home">
         <body className="no-sidebar is-preload">
@@ -75,13 +85,18 @@ class Theater_Info extends React.Component {
                     userObj={this.props.userObj}
                   />
                   <div>
+                  
                     <div className="containerc">
+                    <h3>사용자 후기</h3>
+          <p>
+            <FontAwesomeIcon className="star" icon={faStar} />
+            : {rating_avg}(<FontAwesomeIcon icon={faUser} />  {rated_user} )
+      
+    
+          </p>
                     <ReviewFactory userObj={this.props.userObj} theaterId={cinemas.id} />
                     <div style={{marginTop: 20 }}>
-                      {reviews.filter((reviewf) => {
-                        if
-                        (reviewf.theaterId === cinemas.id) return true;
-                      }).map((review) => (
+                      {reviews.map((review) => (
                         <Review
                         key={review.id}
                         reviewObj={review}

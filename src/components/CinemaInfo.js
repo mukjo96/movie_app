@@ -110,14 +110,7 @@ function CinemaInfo({
             </p>
           </div>
 
-          <h3>사용자 후기</h3>
-          <p>
-            <FontAwesomeIcon className="star" icon={faStar} />
-            {"\t:\t"}
-            {vote_average}
-      
-    
-          </p>
+          
           {/* <ul>
             <li>
               <p>1</p>

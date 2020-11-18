@@ -9,7 +9,7 @@ import { faSignOutAlt, faUser } from "@fortawesome/free-solid-svg-icons";
 
 class Navigation extends React.Component {
   state = {
-    isOpen: false,
+    open: false,
     text: "",
   };
 
@@ -24,6 +24,7 @@ class Navigation extends React.Component {
   };
 
   render() {
+    const {open} = this.state;
     return (
       <div className="nav">
         <nav className="navbar">
@@ -63,13 +64,13 @@ class Navigation extends React.Component {
               <FontAwesomeIcon
                 className="Logout"
                 icon={faSignOutAlt}
-                color={"#eff3f7"}
+                color={"#444"}
                 onClick={this.onLogOutClick}
               />
             </li>
             <li>
               <Link to="/profile">
-                <FontAwesomeIcon icon={faUser} color={"#eff3f7"} />
+                <FontAwesomeIcon icon={faUser} color={"#444"} />
               </Link>
             </li>
           </ul>
@@ -79,7 +80,7 @@ class Navigation extends React.Component {
               menuClicked={this.handleClick.bind(this)}
               width={18}
               height={15}
-              color="white"
+              color="#444"
               position="absolute"
             />
           </section>

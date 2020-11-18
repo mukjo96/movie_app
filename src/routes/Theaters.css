@@ -14,7 +14,7 @@
 }
 .detail_block {
   margin: 0 auto;
-  margin-top: 5px;
+  margin-top: 1em !important;
   text-align: center;
   display: block;
   font-weight: bold;
@@ -87,14 +87,14 @@
 }
 
 .btnlocactive {
-  background: #f2dcb3 !important;
+  background: #666 !important;
   padding: 0.65em 2.35em 0.65em 2.35em !important;
   color: black !important;
   border-radius: 1px 1px;
 }
 
 .btnbractive {
-  background: #f2dcb3 !important;
+  background: #666 !important;
   padding: 0.65em 2.35em 0.65em 2.35em !important;
   color: black !important;
   border-radius: 1px 1px;

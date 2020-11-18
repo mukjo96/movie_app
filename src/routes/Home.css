@@ -173,6 +173,7 @@ q:after {
 
 .home body {
   background: #f0f0f0;
+  overflow-x: hidden;
 }
 
 .home body.is-preload *,
@@ -1567,7 +1568,7 @@ q:after {
 
 section,
 article {
-  margin-bottom: 3em;
+  /* margin-bottom: 3em; */
 }
 
 section > :last-child,
@@ -1630,6 +1631,7 @@ article:last-child {
 .home ul {
   list-style: none;
   padding-left: 1em;
+  flex-wrap: wrap;
 }
 
 .home ul li {
@@ -1689,7 +1691,7 @@ article:last-child {
 .home ul.actions li {
   padding-left: 0;
   display: inline-block;
-  margin: 0 0 0 1em;
+  margin: 0 1em 0 0;
 }
 
 /* .home ul.actions li:first-child {
@@ -2008,7 +2010,7 @@ article:last-child {
   position: relative;
   background: #fff;
   text-align: center;
-  margin: 2em 0;
+/*   margin: 2em 0; */
 }
 
 #header > .container {
@@ -2462,7 +2464,7 @@ article:last-child {
   /* Header */
 
   #header > .container {
-    padding: 10em 0 7em 0;
+    padding: 7em 0 7em 0;
   }
 
   /* Nav */

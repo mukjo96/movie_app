@@ -28,7 +28,7 @@ const WeekendBoxoffice = () => {
   }, [getWeekendBoxoffice, setIsLoading, isLoading]);
 
   return (
-    <body className="container">
+    <body className="boxofficelist">
       {isLoading ? (
         <div className="boxofficemovies">
           <div id="loading-icon">
@@ -39,19 +39,19 @@ const WeekendBoxoffice = () => {
         <div className="boxofficemovies">
           <div className="boxofficemovie">
             <ul className="tboxofficelist">
-              <li className="trank">순위</li>
-              <li className="rankInten">변동</li>
-              <li className="movieNm">영화 제목</li>
-              <li className="audiAcc">관객 수</li>
+              <li className="trank" key="wbox_rank">순위</li>
+              <li className="rankInten" key="wbox_rankInten">변동</li>
+              <li className="movieNm" key="wbox_movieNm">영화 제목</li>
+              <li className="audiAcc" key="wbox_audiAcc">관객 수</li>
             </ul>
           </div>
           <div>
             <hr />
           </div>
           {movies.map((movie) => (
-            <div className="boxofficemovie">
+            <div className="boxofficemovie" key={movie.rnum}>
               <Todayrank
-                key={movie.rnum}
+                
                 rank={movie.rank} // 순위
                 rankInten={movie.rankInten} // 순위 증감
                 movieNm={movie.movieNm} // 제목

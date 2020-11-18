@@ -5,7 +5,6 @@ import Logo from "../res/logo512.png";
 class LoadingIcon extends React.Component {
   render() {
     const background = {
-      background: "#eff3f7",
       width: "100%",
       height: "100vh",
       top: "0",

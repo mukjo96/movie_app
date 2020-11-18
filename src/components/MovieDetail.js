@@ -122,5 +122,16 @@ function nationtoKR(s) {
   else if (s === "Colombia") return "콜롬비아";
   else if (s === "Netherlands") return "네덜란드";
   else if (s === "Germany") return "독일";
+  else if (s === "India") return "인도";
+  else if (s === "Canada") return "캐나다";
+  else if (s === "Russia") return "러시아";
+  else if (s === "Ireland") return "아일랜드";
+  else if (s === "New Zealand") return "뉴질랜드";
+  else if (s === "Austrailia") return "호주";
+  else if (s === "Italy") return "이탈리아";
+  else if (s === "Switzerland") return "스위스";
+  else if (s === "Georgia") return "조지아";
+  else if (s === "Croatia") return "크로아티아";
+  else if (s === "Serbia") return "세르비아";
   else return s;
 }

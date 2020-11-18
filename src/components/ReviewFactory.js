@@ -4,7 +4,7 @@ import ReactStars from "react-rating-stars-component";
 import "./Cinema.css";
 const ReviewFactory = ({userObj, theaterId}) => {
     const [review, setReview] = useState("");
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(3.5);
     const [attachment, setAttachment] = useState("");
     const onSubmit = async (event) =>  {
         event.preventDefault();
@@ -19,7 +19,7 @@ const ReviewFactory = ({userObj, theaterId}) => {
         nickName: userObj.displayName,
         rate: rating
     }
-    await dbService.collection("reviews").add(reviewObj);
+    await dbService.collection(`reviews-${theaterId}`).add(reviewObj);
     setReview("");
     setRating(0);
     };
@@ -49,11 +49,14 @@ const ReviewFactory = ({userObj, theaterId}) => {
             <div className="cinemaCard">
               <div className="cinema-inf">
                 <div className="cinema-inf-top">
-                  <div className="cinema-inf-title"><ReactStars
+                  <div className="review-inf-title"><ReactStars
+                  classNames="ratingstars"
       isHalf={true}
+      value={3.5}
+      size={24}
       onChange={ratingChanged}
       required
-      >평가해주세요</ReactStars></div>
+      />{rating}</div>
                 </div>
                 <div>
                   <hr className="middle_line" />

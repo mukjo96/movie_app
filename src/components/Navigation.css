@@ -1,7 +1,7 @@
 :root {
-  --text-color: #f2dcb3;
-  --background-color: #1b1159;
-  --accent-color: #87cbff;
+  --text-color: #444;
+  --background-color: #ffffff;
+  --accent-color: #ed786a;
 }
 @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Sansita+Swashed:wght@500&display=swap");
 
@@ -24,18 +24,21 @@ body {
   background-color: var(--background-color);
   padding: 8px 12px;
   color: var(--text-color);
+  
 }
 
 .navbar__logo {
   font-size: 24px;
   display: flex;
-  color: var(--text-color);
+ 
 }
 .navbar__logo a {
   font-size: 24px;
   margin-left: 5px;
   margin-top: auto;
   margin-bottom: auto;
+  text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);
+  color: var(--accent-color) !important;
 }
 
 .navbar__logo img {
@@ -59,7 +62,7 @@ body {
 
 .navbar__iconshidden {
   list-style: none;
-  color: #f2f2f2;
+  color: var(--text-color);
   display: flex;
   padding-left: 0;
 }
@@ -85,7 +88,7 @@ body {
   right: 32px;
   top: 20.5px;
   font-size: 24px;
-  color: var(--accent-color);
+  color: var(--text-color);
 }
 .Logout {
   cursor: pointer;
@@ -104,6 +107,9 @@ body {
     align-items: center;
     width: 100%;
   }
+  .navbar__menushow li {
+    margin: 1% 0;
+  }
 
   .navbar__menu li {
     width: 100%;
@@ -115,7 +121,7 @@ body {
     justify-content: center;
     color: #f2f2f2;
     width: 100%;
-    margin-top: 5%;
+    margin-top: 2%;
   }
 
   .navbar__toogleBtn {

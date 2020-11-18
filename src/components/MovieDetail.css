@@ -4,8 +4,8 @@
 }
 
 .details .movieDetail {
-  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  box-shadow:  5px 5px 10px #d9d9d9, 
+             -5px -5px 10px #ffffff;
   background-color: white;
   max-width: 75%;
   max-height: 85%;
@@ -18,7 +18,7 @@
   width: 100%;
 }
 
-a {
+.movieDetail a {
   margin-top: -5%;
   text-decoration: none;
   color: black;
@@ -88,7 +88,7 @@ html > body #content {
   width: 370px;
 }
 
-ul {
+.movieDetail ul {
   list-style-type: none;
   display: inline;
   margin: 0;
@@ -97,7 +97,7 @@ ul {
   flex-wrap: wrap;
   margin: 5px 0px;
 }
-li {
+.movieDetail li {
   margin-right: 3px;
 }
 .star {

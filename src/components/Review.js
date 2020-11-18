@@ -15,14 +15,14 @@ const Review = ({reviewObj, isOwner, theaterId }) => {
     const onDeleteClick = async () => {
         const ok = window.confirm("Are you sure you want to delete this review?");
         if (ok) {
-            await dbService.doc(`reviews/${reviewObj.id}`).delete();
+            await dbService.doc(`reviews-${theaterId}/${reviewObj.id}`).delete();
         }
     };
 
     const toggleEditing = () => setEditing((prev) => !prev);
     const onSubmit = async (event) => {
         event.preventDefault();
-        await dbService.doc(`reviews/${reviewObj.id}`).update({
+        await dbService.doc(`reviews-${theaterId}/${reviewObj.id}`).update({
             text: newReview,
             rate: newRate,
         });
@@ -85,7 +85,7 @@ const Review = ({reviewObj, isOwner, theaterId }) => {
             <div className="cinemaCard">
               <div className="cinema-inf">
                 <div className="cinema-inf-top">
-                  <div className="cinema-inf-title"><FontAwesomeIcon icon={faStar} />{reviewObj.rate} | {reviewObj.nickName} | {moment(reviewObj.createdAt).format("YYYY년 MM월 DD일 HH시mm분ss초")}</div>
+                  <div className="cinema-inf-title"><FontAwesomeIcon icon={faStar} />{reviewObj.rate} | {reviewObj.nickName} | {moment(reviewObj.createdAt).format("YYYY.MM.DD HH:mm:ss")}</div>
                 </div>
                 <div>
                   <hr className="middle_line" />

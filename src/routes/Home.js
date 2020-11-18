@@ -8,7 +8,6 @@ import { authService } from "../fBase";
 import "./Home.css";
 
 function Home({ userObj, history }) {
-  const [first, setFirst] = useState(true);
   const onSearchSubmit = (text) => {
     history.push(`/search?text=${text}`);
   };
@@ -18,11 +17,11 @@ function Home({ userObj, history }) {
       <section id="header">
         <div className="container">
           <h1 id="logo">
-            <a href="#">Movie App</a>
+            <a>Movie App</a>
           </h1>
 
           <p>
-            {userObj.displayName ? userObj.displayName + "님 " : null}영화
+            <strong>{userObj.displayName ? userObj.displayName + "님 " : null}</strong>영화
             정보와 영화관 상세 리뷰를 확인할 수 있습니다.
           </p>
         </div>
@@ -45,7 +44,7 @@ function Home({ userObj, history }) {
                     <header>
                       <h3>Today's Box Office</h3>
                     </header>
-                    {first ? <TodayBoxoffice></TodayBoxoffice> : null}
+                    <TodayBoxoffice></TodayBoxoffice>
                   </section>
                 </div>
                 <div className="col-4 col-6-medium col-12-small">
@@ -57,7 +56,7 @@ function Home({ userObj, history }) {
                       <h3>Last Weekend's Box Office</h3>
                     </header>
 
-                    {first ? <WeekendBoxoffice></WeekendBoxoffice> : null}
+                    <WeekendBoxoffice></WeekendBoxoffice>
                   </section>
                 </div>
                 <div className="col-4 col-6-medium col-12-small">
@@ -69,7 +68,7 @@ function Home({ userObj, history }) {
                       <h3>Top Rated Movies</h3>
                     </header>
 
-                    {first ? <TopRatedlist></TopRatedlist> : null}
+                    <TopRatedlist></TopRatedlist>
                     {/* <strong>Responsive Tools</strong> is a simple set of tools
                       for building responsive sites and apps. All of my
                       templates at <a href="http://html5up.net">HTML5 UP</a> are
@@ -83,7 +82,7 @@ function Home({ userObj, history }) {
                         href="#/nowplaying?page=1"
                         className="button icon solid fa-file"
                       >
-                        Tell Me More
+                        Now in Theaters {">"}
                       </a>
                     </li>
                   </ul>

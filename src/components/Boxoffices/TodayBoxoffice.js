@@ -15,6 +15,7 @@ const TodayBoxoffice = () => {
           (getCurrentDate() - 1)
       );
       setMovies(response.data.boxOfficeResult.dailyBoxOfficeList);
+      console.log(response.data.boxOfficeResult.dailyBoxOfficeList);
     } catch (error) {
       console.log(error);
     }
@@ -28,7 +29,7 @@ const TodayBoxoffice = () => {
   }, [getTodayBoxoffice, setIsLoading, isLoading]);
 
   return (
-    <body className="container">
+    <body className="boxofficelist">
       {isLoading ? (
         <div className="boxofficemovies">
           <div id="loading-icon">
@@ -38,20 +39,20 @@ const TodayBoxoffice = () => {
       ) : (
         <div className="boxofficemovies">
           <div className="boxofficemovie">
-            <ul className="tboxofficelist" key="1">
-              <li className="trank">순위</li>
-              <li className="rankInten">변동</li>
-              <li className="movieNm">영화 제목</li>
-              <li className="audiAcc">관객 수</li>
+            <ul className="tboxofficelist">
+              <li className="trank" key="tbox_rank">순위</li>
+              <li className="rankInten" key="tbox_rankInten">변동</li>
+              <li className="movieNm" key="tbox_movieNm">영화 제목</li>
+              <li className="audiAcc" key="tbox_audiAcc">관객 수</li>
             </ul>
           </div>
           <div>
             <hr />
           </div>
           {movies.map((movie) => (
-            <div className="boxofficemovie">
+            <div className="boxofficemovie" key={movie.rnum}>
               <Todayrank
-                key={movie.rnum}
+                
                 rank={movie.rank} // 순위
                 rankInten={movie.rankInten} // 순위 증감
                 movieNm={movie.movieNm} // 제목

@@ -27,7 +27,7 @@ const TopRatedlist = () => {
   }, [getTopRatedlist, setIsLoading, isLoading]);
 
   return (
-    <body className="container">
+    <body className="boxofficelist">
       {isLoading ? (
         <div className="boxofficemovies">
           <div id="loading-icon">
@@ -38,19 +38,19 @@ const TopRatedlist = () => {
         <div className="boxofficemovies">
           <div className="boxofficemovie">
             <ul className="tboxofficelist">
-              <li className="trank">순위</li>
-              <li className="rankInten">평점</li>
-              <li className="movieNm">영화 제목</li>
-              <li className="audiAcc">평가 수</li>
+              <li className="trank" key="trate_rank">순위</li>
+              <li className="rankInten" key="trate_rankInten">평점</li>
+              <li className="movieNm" key="trate_movieNm">영화 제목</li>
+              <li className="audiAcc" key="trate_audiAcc">평가 수</li>
             </ul>
           </div>
           <div>
             <hr />
           </div>
           {movies.slice(0, 10).map((movie) => (
-            <div className="boxofficemovie">
+            <div className="boxofficemovie" key={movie.id}>
               <Todayrank
-                key={movie.id}
+                
                 rank={movies.indexOf(movie) + 1} // 순위
                 rankInten={movie.vote_average} // 순위 증감
                 movieNm={movie.title} // 제목
